@@ -63,7 +63,7 @@ export function PricingSection({ showFullDetails = true, className = "" }: Prici
               Yatırım Getirisi (ROI) Gerçeği:
             </span>
             <span>
-              Yıllık <strong>55.000 TL</strong> başlangıç lisansı, şirketiniz için <strong>tek bir asgari ücretlinin aylık maliyetinin 5&apos;te birinden bile düşüktür</strong>.
+              Yıllık <strong>65.000 TL</strong> başlangıç lisansı, şirketiniz için <strong>tek bir personelin aylık maliyetinden bile çok daha düşüktür</strong>.
             </span>
           </div>
 

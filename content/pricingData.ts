@@ -27,13 +27,13 @@ export const PRICING_PLANS: PricingPlan[] = [
     color: "emerald",
     targetAudience:
       "5 - 25 personeli olan, eski hantal masaüstü programlarından kurtulmak isteyen ticaret ve hizmet KOBİ'leri.",
-    annualPrice: "55.000 TL – 65.000 TL",
-    annualPriceMin: 55000,
+    annualPrice: "65.000 TL",
+    annualPriceMin: 65000,
     annualPriceMax: 65000,
-    monthlyEquivalent: "~4.500 - 5.500 TL / ay",
-    monthlyNote: "Şirket için tek bir asgari ücretlinin aylık maliyetinin 5'te biri bile değil!",
+    monthlyEquivalent: "~5.500 TL / ay",
+    monthlyNote: "Şirket için tek bir personelin aylık maliyetinden bile düşük!",
     usersIncluded: 3,
-    setupCost: "15.000 TL – 20.000 TL (Tek Seferlik Kurulum & Veri Taşıma)",
+    setupCost: "20.000 TL (Tek Seferlik Kurulum & Veri Taşıma)",
     popular: false,
     ctaLabel: "Standart Paket İçin Demo İste",
     features: [
@@ -57,14 +57,14 @@ export const PRICING_PLANS: PricingPlan[] = [
     color: "blue",
     targetAudience:
       "Birden fazla deposu, şubesi veya saha ekibi olan, büyüme ivmesindeki operasyonel işletmeler.",
-    annualPrice: "85.000 TL – 110.000 TL",
-    annualPriceMin: 85000,
+    annualPrice: "110.000 TL",
+    annualPriceMin: 110000,
     annualPriceMax: 110000,
-    monthlyEquivalent: "~7.000 - 9.100 TL / ay",
+    monthlyEquivalent: "~9.100 TL / ay",
     monthlyNote: "Çok şubeli ve çok depolu operasyonlar için eksiksiz güç.",
     usersIncluded: 5,
     additionalUserPrice: "6.000 TL + KDV / yıl",
-    setupCost: "25.000 TL – 35.000 TL (Tek Seferlik Kurulum & Eğitim)",
+    setupCost: "35.000 TL (Tek Seferlik Kurulum & Eğitim)",
     popular: true,
     ctaLabel: "Professional Paket İçin Demo İste",
     features: [
@@ -88,14 +88,14 @@ export const PRICING_PLANS: PricingPlan[] = [
     color: "purple",
     targetAudience:
       "İmalatçılar, fabrikalar, e-ticaret devleri veya zincir işletmeler.",
-    annualPrice: "160.000 TL – 220.000 TL",
-    annualPriceMin: 160000,
+    annualPrice: "220.000 TL",
+    annualPriceMin: 220000,
     annualPriceMax: 220000,
-    monthlyEquivalent: "~13.300 - 18.300 TL / ay",
+    monthlyEquivalent: "~18.300 TL / ay",
     monthlyNote: "Üretimden pazaryerine anahtar teslim dijital kurumsallaşma.",
     usersIncluded: 10,
     additionalUserPrice: "Özel Tekliflendirilir",
-    setupCost: "40.000 TL – 60.000 TL (Anahtar Teslim Canlıya Alma)",
+    setupCost: "60.000 TL (Anahtar Teslim Canlıya Alma)",
     popular: false,
     ctaLabel: "Enterprise Çözüm Talebi",
     features: [
@@ -166,7 +166,7 @@ export const HEAD_TO_HEAD_COMPARISON: ComparisonRow[] = [
   {
     feature: "Sunucu & Donanım Yatırımı",
     traditional: "100.000 TL+ fiziksel sunucu, klima odası, Windows Server & SQL lisansları",
-    erpovy: "0 TL — Modern bulut altyapısı, sıfır donanım maliyeti",
+    erpovy: "Modern bulut altyapısı, sıfır donanım yatırımı",
     isAdvantage: true,
   },
   {
@@ -178,7 +178,7 @@ export const HEAD_TO_HEAD_COMPARISON: ComparisonRow[] = [
   {
     feature: "Yıllık Zorunlu Bakım (LEM)",
     traditional: "Her yıl lisans bedelinin %15-%25'i oranında zorunlu LEM bakım faturası",
-    erpovy: "0 TL Gizli Bakım — Güncellemeler ve bulut barındırma fiyata dahildir",
+    erpovy: "Gizli Bakım Bedelsiz — Güncellemeler ve bulut barındırma fiyata dahildir",
     isAdvantage: true,
   },
   {
@@ -238,7 +238,7 @@ export const DETAILED_MODULE_MATRIX: ModuleMatrixRow[] = [
 
   { name: "Rol Bazlı Yetkilendirme", category: "Güvenlik & Destek", standart: "Standart Roller", professional: "Gelişmiş Granüler", enterprise: "Tam Özel Rol Setleri" },
   { name: "Destek Seviyesi", category: "Güvenlik & Destek", standart: "Bilet & E-Posta", professional: "Öncelikli Telefon & Canlı", enterprise: "Özel Müşteri Yöneticisi + SLA" },
-  { name: "Kurulum & Canlıya Alma", category: "Güvenlik & Destek", standart: "15.000 - 20.000 TL", professional: "25.000 - 35.000 TL", enterprise: "40.000 - 60.000 TL" },
+  { name: "Kurulum & Canlıya Alma", category: "Güvenlik & Destek", standart: "20.000 TL", professional: "35.000 TL", enterprise: "60.000 TL" },
 ];
 
 export const PRICING_FAQ = [

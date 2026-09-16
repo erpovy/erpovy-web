@@ -53,7 +53,9 @@ export default function PricingPage() {
                   cloud_done
                 </span>
                 <div>
-                  <strong className="text-xs sm:text-sm text-white block font-bold">0 TL Sunucu Yatırımı</strong>
+                  <strong className="text-xs sm:text-sm text-white block font-bold">
+                    Sıfır Sunucu Yatırımı
+                  </strong>
                   <span className="text-[11px] text-slate-400">%100 bulut tabanlı</span>
                 </div>
               </div>
