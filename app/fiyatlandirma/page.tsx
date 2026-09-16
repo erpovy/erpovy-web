@@ -73,8 +73,8 @@ export default function PricingPage() {
                   groups
                 </span>
                 <div>
-                  <strong className="text-xs sm:text-sm text-white block font-bold">Erpovy Teams</strong>
-                  <span className="text-[11px] text-slate-400">Granüler rol ve yetkilendirme</span>
+                  <strong className="text-xs sm:text-sm text-white block font-bold">Rol Bazlı Yetki</strong>
+                  <span className="text-[11px] text-slate-400">Granüler kullanıcı izinleri</span>
                 </div>
               </div>
             </div>

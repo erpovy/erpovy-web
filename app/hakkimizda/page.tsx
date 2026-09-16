@@ -42,7 +42,7 @@ export default function HakkimizdaPage() {
     },
     {
       icon: Sparkles,
-      title: "Erpovy Teams Gücü",
+      title: "Rol Bazlı Yetkilendirme",
       desc: "Yönetici panelinden saniyeler içinde granüler rol tanımlama, veri gizleme ve güvenli ekip yetkilendirmesi.",
     },
   ];

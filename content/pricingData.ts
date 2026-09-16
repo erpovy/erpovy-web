@@ -76,7 +76,7 @@ export const PRICING_PLANS: PricingPlan[] = [
       "Gelişmiş CRM & Satış Hunisi (Pipeline)",
       "B2B Müşteri / Bayi Sipariş Portali",
       "5 Kullanıcı Lisansı Dahil (İlave: 6.000 TL/yıl)",
-      "Erpovy Teams (Granüler Kullanıcı & Rol Yetkisi)",
+      "Rol Bazlı Yetkilendirme (Granüler Kullanıcı İzinleri)",
       "Öncelikli Telefon & Canlı Uzman Destek",
     ],
   },
@@ -144,9 +144,9 @@ export const COMPETITOR_ADVANTAGES: CompetitorAdvantage[] = [
       "Rakipler sizden her yıl zorunlu LEM (yazılım bakım bedeli), her ek modül için binlerce dolar ve her şube için ayrı lisans ister.",
   },
   {
-    id: "erpovy-teams",
+    id: "rol-bazli-yetkilendirme",
     icon: "security",
-    title: "Erpovy Teams Yetkilendirme",
+    title: "Rol Bazlı Yetkilendirme",
     highlight: "Granüler & Hızlı Yetki Yönetimi",
     description:
       "Yetkili yöneticiler; saniyeler içinde personele veya departmana özel, kısıtlı ya da salt-okunur erişim tanımlayabilir. Bilgi güvenliği garanti altındadır.",
@@ -190,7 +190,7 @@ export const HEAD_TO_HEAD_COMPARISON: ComparisonRow[] = [
   {
     feature: "Kullanıcı & Rol Yetkilendirme",
     traditional: "Bayi çağırma zorunluluğu, saatlik teknik servis faturası",
-    erpovy: "Erpovy Teams ile yönetici panelinden saniyeler içinde granüler rol ve yetki tanımlama",
+    erpovy: "Yönetici panelinden saniyeler içinde granüler rol bazlı yetkilendirme",
     isAdvantage: true,
   },
   {
@@ -236,7 +236,7 @@ export const DETAILED_MODULE_MATRIX: ModuleMatrixRow[] = [
   { name: "Kalite Kontrol & İSG Süreçleri", category: "Üretim & Entegrasyon", standart: false, professional: false, enterprise: true },
   { name: "Özel API & Entegrasyon Desteği", category: "Üretim & Entegrasyon", standart: false, professional: false, enterprise: true },
 
-  { name: "Erpovy Teams Rol Yetkilendirme", category: "Güvenlik & Destek", standart: "Standart Roller", professional: "Gelişmiş Granüler", enterprise: "Tam Özel Rol Setleri" },
+  { name: "Rol Bazlı Yetkilendirme", category: "Güvenlik & Destek", standart: "Standart Roller", professional: "Gelişmiş Granüler", enterprise: "Tam Özel Rol Setleri" },
   { name: "Destek Seviyesi", category: "Güvenlik & Destek", standart: "Bilet & E-Posta", professional: "Öncelikli Telefon & Canlı", enterprise: "Özel Müşteri Yöneticisi + SLA" },
   { name: "Kurulum & Canlıya Alma", category: "Güvenlik & Destek", standart: "15.000 - 20.000 TL", professional: "25.000 - 35.000 TL", enterprise: "40.000 - 60.000 TL" },
 ];
@@ -268,8 +268,8 @@ export const PRICING_FAQ = [
       "Kesinlikle hayır. Erpovy %100 bulut yerel modern bir platformdur. 100.000 TL'leri bulan fiziksel sunucu, Windows Server lisansı, SQL lisansı veya klima yatırımı yapmanıza gerek yoktur.",
   },
   {
-    question: "Erpovy Teams granüler yetkilendirme nedir?",
+    question: "Rol bazlı granüler yetkilendirme nedir?",
     answer:
-      "Yöneticilerin, çalışanlara tek tıkla sadece kendi görmesi gereken cari, depo veya fatura ekranlarını açabilmesini; maliyet fiyatlarını veya kâr marjlarını personele saniyeler içinde gizleyebilmesini sağlayan modern rol yönetim motorumuzdur.",
+      "Yöneticilerin, çalışanlara tek tıkla sadece kendi görmesi gereken cari, depo veya fatura ekranlarını açabilmesini; maliyet fiyatlarını veya kâr marjlarını personele saniyeler içinde gizleyebilmesini sağlayan modern rol yönetim altyapımızdır.",
   },
 ];
