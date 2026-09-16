@@ -4,11 +4,11 @@ import { Footer } from "@/components/Footer";
 import { ClosingDemoSection } from "@/components/ClosingDemoSection";
 
 export const metadata: Metadata = {
-  title: "Canlı Demo Talep Edin | Erpovy Modüler ERP",
+  title: "Canlı Demo Talebi | Erpovy Yeni Nesil Bulut ERP Simülasyonu",
   description:
-    "Erpovy'yi 20 dakikalık canlı oturumda inceleyin. Ezber slaytlar yerine firmanızın süreçlerine özel canlı iş akışı simülasyonunu keşfedin.",
+    "Erpovy'yi 20 dakikalık canlı oturumda inceleyin. Ezber slaytlar yerine kendi sektörünüze özel iş akışı simülasyonunu hemen ücretsiz keşfedin.",
   alternates: {
-    canonical: "/demo",
+    canonical: "https://www.erpovy.com/demo",
   },
 };
 

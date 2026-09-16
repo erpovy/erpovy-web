@@ -5,11 +5,11 @@ import { ClosingDemoSection } from "@/components/ClosingDemoSection";
 import { Shield, Zap, Sparkles, Cpu, Layers, HeartHandshake } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Hakkımızda | Erpovy Modüler ERP",
+  title: "Hakkımızda & Misyonumuz | Erpovy Yeni Nesil Bulut ERP",
   description:
-    "Erpovy'nin hikayesi, misyonu ve vizyonu. İşletmeleri hantal masaüstü yazılımlardan kurtararak modern bulut hızına taşıyoruz.",
+    "Erpovy'nin kuruluş hikayesi, misyonu ve vizyonu. İşletmeleri hantal masaüstü programlarından kurtararak modern bulut hızında dijitalleştiriyoruz.",
   alternates: {
-    canonical: "/hakkimizda",
+    canonical: "https://www.erpovy.com/hakkimizda",
   },
 };
 

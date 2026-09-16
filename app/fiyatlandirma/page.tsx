@@ -6,11 +6,11 @@ import { ClosingDemoSection } from "@/components/ClosingDemoSection";
 import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Fiyatlandırma & Paketler | Erpovy Modüler ERP",
+  title: "Erpovy Fiyatlandırma | Şeffaf ve Modüler Bulut ERP Paketleri",
   description:
-    "Eski masaüstü programlarına, pahalı sunucu yatırımlarına ve zorunlu LEM bakım ücretlerine son. Erpovy Standart, Professional ve Enterprise paketlerini inceleyin.",
+    "Erpovy şeffaf yıllık lisans paketlerini inceleyin. Gizli LEM bakım bedeli ve sunucu yatırımı olmadan KOBİ ve kurumsal ölçekte işletmenizi hemen büyütün.",
   alternates: {
-    canonical: "/fiyatlandirma",
+    canonical: "https://www.erpovy.com/fiyatlandirma",
   },
 };
 

@@ -6,11 +6,11 @@ import { PricingFaq } from "@/components/PricingFaq";
 import { ClosingDemoSection } from "@/components/ClosingDemoSection";
 
 export const metadata: Metadata = {
-  title: "Sıkça Sorulan Sorular (SSS) | Erpovy Modüler ERP",
+  title: "Sıkça Sorulan Sorular | Erpovy Bulut ERP Merak Edilenler",
   description:
-    "Erpovy hakkında en çok merak edilen sorular: Kurulum, veri taşıma, lisanslama, LEM bedelleri ve modül kapsamları hakkında ayrıntılı yanıtlar.",
+    "Erpovy kurulumu, veri aktarımı, lisanslama, kullanıcı yetkilendirme ve bulut güvenliği hakkında en çok merak edilen tüm soruların şeffaf yanıtları.",
   alternates: {
-    canonical: "/sss",
+    canonical: "https://www.erpovy.com/sss",
   },
 };
 

@@ -5,11 +5,11 @@ import { ModuleExplorer } from "@/components/ModuleExplorer";
 import { ClosingDemoSection } from "@/components/ClosingDemoSection";
 
 export const metadata: Metadata = {
-  title: "Modüller & Özellikler | Erpovy Modüler ERP",
+  title: "Erpovy Modülleri | Muhasebe, Finans, CRM, Stok ve WMS Depo",
   description:
-    "Finans, Muhasebe, CRM, Stok, Depo (WMS), Üretim, İK ve Pazaryeri entegrasyonlarını içeren tüm Erpovy modüllerini keşfedin.",
+    "Muhasebe, finans, satış, satın alma, WMS depo, üretim ve CRM modüllerini keşfedin. İhtiyacınıza uygun modülleri seçerek işletmenizi tek merkezden yönetin.",
   alternates: {
-    canonical: "/moduller",
+    canonical: "https://www.erpovy.com/moduller",
   },
 };
 

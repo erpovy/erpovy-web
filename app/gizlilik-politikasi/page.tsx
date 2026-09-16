@@ -4,11 +4,11 @@ import { Footer } from "@/components/Footer";
 import { Shield, Lock, FileText } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Gizlilik Politikası | Erpovy Modüler ERP",
+  title: "Gizlilik Politikası | Erpovy Veri Güvenliği ve Taahhütler",
   description:
-    "Erpovy platformunun kişisel ve kurumsal veri güvenliği, çerez politikası ve gizlilik taahhütleri.",
+    "Erpovy platformunun kişisel ve kurumsal veri güvenliği ilkeleri, 256-Bit SSL şifreleme altyapısı, çerez politikası ve resmi gizlilik taahhütleri metni.",
   alternates: {
-    canonical: "/gizlilik-politikasi",
+    canonical: "https://www.erpovy.com/gizlilik-politikasi",
   },
 };
 

@@ -4,11 +4,11 @@ import { Footer } from "@/components/Footer";
 import { Scale, FileCheck } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Kullanım Koşulları | Erpovy Modüler ERP",
+  title: "Kullanım Koşulları ve Hizmet Sözleşmesi | Erpovy Bulut ERP",
   description:
-    "Erpovy platformu kullanım ve hizmet şartları sözleşmesi, kullanıcı hakları ve abonelik esasları.",
+    "Erpovy platformu kullanım ve hizmet şartları sözleşmesi, lisanslama esasları, SLA garantisi, kullanıcı yükümlülükleri ve veri mülkiyeti hakları.",
   alternates: {
-    canonical: "/kullanim-kosullari",
+    canonical: "https://www.erpovy.com/kullanim-kosullari",
   },
 };
 

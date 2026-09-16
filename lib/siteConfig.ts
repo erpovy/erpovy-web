@@ -1,11 +1,11 @@
 export const siteConfig = {
   name: "Erpovy",
   category: "Modüler ERP ve İş Yönetimi",
-  title: "Erpovy | Modüler ERP ve İş Yönetimi",
+  title: "Erpovy | Yeni Nesil Bulut ERP ve Modüler İşletim Sistemi",
   description:
-    "Satış, finans, stok, üretim ve ekip süreçlerinizi Erpovy ile bir araya getirin. İşletmenize uygun modülleri keşfedin, demo talep edin.",
+    "Erpovy ile satış, finans, stok, üretim ve ekip süreçlerinizi tek merkezde toplayın. Hantal masaüstü programlarına son verin, 20 dakikalık canlı demoyu görün.",
   tagline: "İşletmenizin süreçlerini bir araya getiren modüler ERP.",
-  siteUrl: "https://erpovy.com",
+  siteUrl: "https://www.erpovy.com",
   appUrl: "https://app.erpovy.com",
   loginUrl: "https://app.erpovy.com/login",
   logo: "/brand/logo.png",

@@ -4,11 +4,11 @@ import { Footer } from "@/components/Footer";
 import { ShieldCheck, FileText } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "KVKK Aydınlatma Metni | Erpovy Modüler ERP",
+  title: "KVKK Aydınlatma Metni ve Veri Güvenliği | Erpovy Bulut ERP",
   description:
-    "6698 Sayılı Kişisel Verilerin Korunması Kanunu (KVKK) uyarınca Erpovy aydınlatma metni ve veri sahibi hakları.",
+    "6698 sayılı KVKK uyarınca Erpovy kişisel verilerin işlenmesi, saklanması, güvenliği ve veri sahiplerinin kanuni haklarına ilişkin resmi aydınlatma metni.",
   alternates: {
-    canonical: "/kvkk",
+    canonical: "https://www.erpovy.com/kvkk",
   },
 };
 
