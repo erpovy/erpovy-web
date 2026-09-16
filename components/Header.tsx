@@ -28,11 +28,12 @@ export function Header() {
   }, [mobileMenuOpen]);
 
   const navItems = [
-    { label: "Ürünü keşfet", href: "/#hikaye" },
     { label: "Çözümler", href: "/#sektorler" },
-    { label: "Modüller", href: "/#moduller" },
+    { label: "Modüller", href: "/moduller" },
     { label: "Fiyatlandırma", href: "/fiyatlandirma" },
-    { label: "Sıkça Sorulanlar", href: "/#sss" },
+    { label: "Hakkımızda", href: "/hakkimizda" },
+    { label: "İletişim", href: "/iletisim" },
+    { label: "SSS", href: "/sss" },
   ];
 
   return (
@@ -58,17 +59,17 @@ export function Header() {
 
           {/* Desktop Navigation */}
           <nav
-            className="hidden md:flex items-center gap-8"
+            className="hidden md:flex items-center gap-5 lg:gap-7"
             aria-label="Ana Gezinti"
           >
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item.href}
                 href={item.href}
                 className="text-sm font-medium text-slate-300 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1992d1] rounded px-2 py-1"
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
           </nav>
 
@@ -84,11 +85,11 @@ export function Header() {
             </a>
             <ButtonWithIcon
               asLink
-              href="/#demo"
+              href="/demo"
               variant="brand"
               size="sm"
             >
-              İşime uygun demoyu gör
+              Canlı Demo İste
             </ButtonWithIcon>
           </div>
 
@@ -119,14 +120,14 @@ export function Header() {
         >
           <nav className="flex flex-col gap-4 mb-8" aria-label="Mobil Menü">
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item.href}
                 href={item.href}
                 onClick={() => setMobileMenuOpen(false)}
                 className="text-lg font-medium text-slate-200 hover:text-[#1992d1] py-2 border-b border-white/5 transition-colors"
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
           </nav>
 
@@ -142,13 +143,13 @@ export function Header() {
             </a>
             <ButtonWithIcon
               asLink
-              href="/#demo"
+              href="/demo"
               variant="brand"
               size="md"
               className="w-full justify-center"
               onClick={() => setMobileMenuOpen(false)}
             >
-              İşime uygun demoyu gör
+              Canlı Demo İste
             </ButtonWithIcon>
           </div>
         </div>
