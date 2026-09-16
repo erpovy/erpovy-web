@@ -62,7 +62,7 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="/sss" className="hover:text-white transition-colors">
+                <a href="/#sss" className="hover:text-white transition-colors">
                   Sıkça Sorulanlar (SSS)
                 </a>
               </li>

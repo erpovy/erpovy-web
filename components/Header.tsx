@@ -31,9 +31,7 @@ export function Header() {
     { label: "Çözümler", href: "/#sektorler" },
     { label: "Modüller", href: "/moduller" },
     { label: "Fiyatlandırma", href: "/fiyatlandirma" },
-    { label: "Hakkımızda", href: "/hakkimizda" },
     { label: "İletişim", href: "/iletisim" },
-    { label: "SSS", href: "/sss" },
   ];
 
   return (
