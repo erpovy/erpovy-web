@@ -74,20 +74,22 @@ export function Header() {
           {/* Right actions */}
           <div className="hidden md:flex items-center gap-4">
             <a
-              href={siteConfig.loginUrl}
+              href={siteConfig.registerUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm font-medium text-slate-300 hover:text-white px-3 py-1.5 rounded transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1992d1]"
             >
-              Giriş yap
+              Kayıt ol
             </a>
             <ButtonWithIcon
               asLink
-              href="/demo"
+              href={siteConfig.loginUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               variant="brand"
               size="sm"
             >
-              Canlı Demo İste
+              Giriş yap
             </ButtonWithIcon>
           </div>
 
@@ -131,23 +133,25 @@ export function Header() {
 
           <div className="flex flex-col gap-3 mt-auto pt-6 border-t border-white/10">
             <a
-              href={siteConfig.loginUrl}
+              href={siteConfig.registerUrl}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setMobileMenuOpen(false)}
               className="w-full text-center py-3 rounded-md border border-white/15 text-slate-200 font-medium hover:bg-slate-800 transition-colors"
             >
-              Giriş yap
+              Kayıt ol
             </a>
             <ButtonWithIcon
               asLink
-              href="/demo"
+              href={siteConfig.loginUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               variant="brand"
               size="md"
               className="w-full justify-center"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Canlı Demo İste
+              Giriş yap
             </ButtonWithIcon>
           </div>
         </div>

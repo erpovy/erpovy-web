@@ -8,6 +8,7 @@ export const siteConfig = {
   siteUrl: "https://www.erpovy.com",
   appUrl: "https://app.erpovy.com",
   loginUrl: "https://app.erpovy.com/login",
+  registerUrl: "https://app.erpovy.com/register",
   logo: "/brand/logo.png",
   favicon: "/brand/favicon.png",
   socialOg: "/og/erpovy-og.png",
