@@ -28,7 +28,7 @@ export function Header() {
   }, [mobileMenuOpen]);
 
   const navItems = [
-    { label: "Çözümler", href: "/#sektorler" },
+    { label: "Çözümler", href: "/cozumler" },
     { label: "Modüller", href: "/moduller" },
     { label: "Fiyatlandırma", href: "/fiyatlandirma" },
     { label: "İletişim", href: "/iletisim" },
