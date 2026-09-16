@@ -21,7 +21,7 @@ export interface PricingPlan {
 export const PRICING_PLANS: PricingPlan[] = [
   {
     id: "standart",
-    name: "ERPovy Standart",
+    name: "Erpovy Standart",
     tagline: "Çekirdek ERP",
     badge: "KOBİ'ler İçin İdeal",
     color: "emerald",
@@ -51,7 +51,7 @@ export const PRICING_PLANS: PricingPlan[] = [
   },
   {
     id: "professional",
-    name: "ERPovy Professional",
+    name: "Erpovy Professional",
     tagline: "Gelişmiş ERP",
     badge: "En Çok Tercih Edilen",
     color: "blue",
@@ -82,7 +82,7 @@ export const PRICING_PLANS: PricingPlan[] = [
   },
   {
     id: "enterprise",
-    name: "ERPovy Enterprise",
+    name: "Erpovy Enterprise",
     tagline: "Sanayi, Üretim & Büyük Ölçek",
     badge: "Sanayi & İmalat Lideri",
     color: "purple",
@@ -139,7 +139,7 @@ export const COMPETITOR_ADVANTAGES: CompetitorAdvantage[] = [
     title: "Gizli Maliyet Yok",
     highlight: "Şeffaf & Öngörülebilir Lisanslama",
     description:
-      "ERPovy'de yıllık tek fatura ödersiniz. Ne ödeyeceğinizi baştan bilir, yıl ortasında sürpriz faturalarla karşılaşmazsınız.",
+      "Erpovy'de yıllık tek fatura ödersiniz. Ne ödeyeceğinizi baştan bilir, yıl ortasında sürpriz faturalarla karşılaşmazsınız.",
     competitorComparison:
       "Rakipler sizden her yıl zorunlu LEM (yazılım bakım bedeli), her ek modül için binlerce dolar ve her şube için ayrı lisans ister.",
   },
@@ -149,7 +149,7 @@ export const COMPETITOR_ADVANTAGES: CompetitorAdvantage[] = [
     title: "Erpovy Teams Yetkilendirme",
     highlight: "Granüler & Hızlı Yetki Yönetimi",
     description:
-      "Patron veya yönetici; saniyeler içinde istediği personele özel, kısıtlı veya salt-okunur yetki tanımlayabilir. Bilgi güvenliği garanti altındadır.",
+      "Yetkili yöneticiler; saniyeler içinde personele veya departmana özel, kısıtlı ya da salt-okunur erişim tanımlayabilir. Bilgi güvenliği garanti altındadır.",
     competitorComparison:
       "Rakiplerde her kullanıcı rolü, alan kısıtlaması veya şube ayrımı için yetkili bayiye bağımlı olup bin dereden su getirmek gerekir.",
   },
@@ -190,7 +190,7 @@ export const HEAD_TO_HEAD_COMPARISON: ComparisonRow[] = [
   {
     feature: "Kullanıcı & Rol Yetkilendirme",
     traditional: "Bayi çağırma zorunluluğu, saatlik teknik servis faturası",
-    erpovy: "Erpovy Teams ile patron panelinden saniyeler içinde anında yetkilendirme",
+    erpovy: "Erpovy Teams ile yönetici panelinden saniyeler içinde granüler rol ve yetki tanımlama",
     isAdvantage: true,
   },
   {
@@ -250,12 +250,12 @@ export const PRICING_FAQ = [
   {
     question: "Eski yazılımımızdan (Logo, Mikro vb.) verilerimizi taşıyabilir misiniz?",
     answer:
-      "Evet! Tek seferlik kurulum ve veri taşıma sürecimizde; mevcut cari kartlarınızı, stok listelerinizi, fiyat listelerinizi ve bakiye durumlarınızı ERPovy'ye güvenle ve eksiksiz aktarıyoruz.",
+      "Evet! Tek seferlik kurulum ve veri taşıma sürecimizde; mevcut cari kartlarınızı, stok listelerinizi, fiyat listelerinizi ve bakiye durumlarınızı Erpovy'ye güvenle ve eksiksiz aktarıyoruz.",
   },
   {
     question: "Yıl sonunda zorunlu LEM veya ek bakım ücreti ödeyecek miyim?",
     answer:
-      "Hayır. Geleneksel programların aksine ERPovy'de 'LEM' veya zorunlu gizli bakım ücreti yoktur. Yıllık lisans bedeliniz; yazılımın tüm güncellemelerini, mevzuat uyumlarını ve bulut altyapı hizmetlerini kapsar.",
+      "Hayır. Geleneksel programların aksine Erpovy'de 'LEM' veya zorunlu gizli bakım ücreti yoktur. Yıllık lisans bedeliniz; yazılımın tüm güncellemelerini, mevzuat uyumlarını ve bulut altyapı hizmetlerini kapsar.",
   },
   {
     question: "Ek kullanıcıya ihtiyacımız olduğunda ne yapıyoruz?",
@@ -265,11 +265,11 @@ export const PRICING_FAQ = [
   {
     question: "Ayrı bir sunucu veya donanım almamız gerekiyor mu?",
     answer:
-      "Kesinlikle hayır. ERPovy %100 bulut yerel modern bir platformdur. 100.000 TL'leri bulan fiziksel sunucu, Windows Server lisansı, SQL lisansı veya klima yatırımı yapmanıza gerek yoktur.",
+      "Kesinlikle hayır. Erpovy %100 bulut yerel modern bir platformdur. 100.000 TL'leri bulan fiziksel sunucu, Windows Server lisansı, SQL lisansı veya klima yatırımı yapmanıza gerek yoktur.",
   },
   {
     question: "Erpovy Teams granüler yetkilendirme nedir?",
     answer:
-      "Patron veya yöneticilerin, çalışanlara tek tıkla sadece kendi görmesi gereken cari, depo veya fatura ekranlarını açabilmesini; maliyet fiyatlarını veya kâr marjlarını personele saniyeler içinde gizleyebilmesini sağlayan modern rol yönetim motorumuzdur.",
+      "Yöneticilerin, çalışanlara tek tıkla sadece kendi görmesi gereken cari, depo veya fatura ekranlarını açabilmesini; maliyet fiyatlarını veya kâr marjlarını personele saniyeler içinde gizleyebilmesini sağlayan modern rol yönetim motorumuzdur.",
   },
 ];

@@ -294,14 +294,14 @@ export function PricingSection({ showFullDetails = true, className = "" }: Prici
           <div className="max-w-3xl mb-12 relative z-10">
             <span className="text-xs sm:text-sm font-bold tracking-wider text-sky-300 uppercase mb-3 inline-flex items-center gap-2">
               <Shield className="w-4 h-4" />
-              Neden Logo, Mikro veya DİA Yerine ERPovy?
+              Neden Logo, Mikro veya DİA Yerine Erpovy?
             </span>
             <h3 className="text-2xl sm:text-4xl font-black text-white tracking-tight leading-tight mb-4">
               Geleneksel ERP&apos;lerin 3 Büyük Külfetini Tarihe Karıştırıyoruz.
             </h3>
             <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
-              Müşterilerimizin eski masaüstü yazılımlarından ERPovy&apos;ye geçme sebepleri; hantal uzak masaüstü (RDP) çilesinden kurtulmak,
-              gizli bakım faturalarına son vermek ve ekibini patron yetkisiyle anında organize edebilmektir.
+              Müşterilerimizin eski masaüstü yazılımlarından Erpovy&apos;ye geçme sebepleri; hantal uzak masaüstü (RDP) çilesinden kurtulmak,
+              gizli bakım faturalarına son vermek ve ekibini yönetici paneliyle anında organize edebilmektir.
             </p>
           </div>
 
@@ -346,7 +346,7 @@ export function PricingSection({ showFullDetails = true, className = "" }: Prici
               Birebir Kıyaslama
             </span>
             <h3 className="text-2xl sm:text-3xl font-black text-[#070d1c] tracking-tight">
-              Eski Tip Masaüstü ERP vs. ERPovy Yeni Nesil Bulut
+              Eski Tip Masaüstü ERP vs. Erpovy Yeni Nesil Bulut
             </h3>
           </div>
 
@@ -359,7 +359,7 @@ export function PricingSection({ showFullDetails = true, className = "" }: Prici
                     Geleneksel ERP (Logo / Mikro vb.)
                   </th>
                   <th className="py-3 px-4 font-bold text-[#1992d1] bg-sky-50/70 rounded-tr-xl w-3/8">
-                    ERPovy Bulut Çözümü
+                    Erpovy Bulut Çözümü
                   </th>
                 </tr>
               </thead>

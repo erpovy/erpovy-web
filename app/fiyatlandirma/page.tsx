@@ -74,7 +74,7 @@ export default function PricingPage() {
                 </span>
                 <div>
                   <strong className="text-xs sm:text-sm text-white block font-bold">Erpovy Teams</strong>
-                  <span className="text-[11px] text-slate-400">Granüler patron yetkisi</span>
+                  <span className="text-[11px] text-slate-400">Granüler rol ve yetkilendirme</span>
                 </div>
               </div>
             </div>
