@@ -1,0 +1,15 @@
+# Apache configuration for Next.js Static Export
+Options -MultiViews
+RewriteEngine On
+
+# If the exact file or directory exists, serve it directly
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Check if .html file exists for the request
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.*)$ $1.html [L]
+
+# Fallback to index.html if directory
+DirectoryIndex index.html
