@@ -287,45 +287,45 @@ export function PricingSection({ showFullDetails = true, className = "" }: Prici
         </div>
 
         {/* 3 Killer Advantages Section: Logo / Mikro / DIA Comparison */}
-        <div className="rounded-3xl bg-[#070d1c] text-white p-8 sm:p-12 lg:p-16 border border-white/10 shadow-2xl relative overflow-hidden mb-16">
+        <div className="rounded-2xl sm:rounded-3xl bg-[#070d1c] text-white p-5 sm:p-10 lg:p-14 border border-white/10 shadow-xl relative overflow-hidden mb-8 sm:mb-14">
           <div className="pointer-events-none absolute -top-32 -right-32 w-96 h-96 bg-[#1992d1]/15 rounded-full blur-3xl" />
           <div className="pointer-events-none absolute -bottom-32 -left-32 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl" />
 
-          <div className="max-w-3xl mb-12 relative z-10">
-            <span className="text-xs sm:text-sm font-bold tracking-wider text-sky-300 uppercase mb-3 inline-flex items-center gap-2">
+          <div className="max-w-3xl mb-6 sm:mb-10 relative z-10">
+            <span className="text-xs sm:text-sm font-bold tracking-wider text-sky-300 uppercase mb-2 sm:mb-3 inline-flex items-center gap-2">
               <Shield className="w-4 h-4" />
               Neden Logo, Mikro veya DİA Yerine Erpovy?
             </span>
-            <h3 className="text-2xl sm:text-4xl font-black text-white tracking-tight leading-tight mb-4">
+            <h3 className="text-xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight leading-tight mb-3 sm:mb-4">
               Geleneksel ERP&apos;lerin 3 Büyük Külfetini Tarihe Karıştırıyoruz.
             </h3>
-            <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
+            <p className="text-xs sm:text-sm md:text-base text-slate-300 leading-relaxed">
               Müşterilerimizin eski masaüstü yazılımlarından Erpovy&apos;ye geçme sebepleri; hantal uzak masaüstü (RDP) çilesinden kurtulmak,
               gizli bakım faturalarına son vermek ve ekibini yönetici paneliyle anında organize edebilmektir.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 relative z-10">
             {COMPETITOR_ADVANTAGES.map((adv) => (
               <div
                 key={adv.id}
-                className="p-6 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-white/20 hover:bg-white/[0.07] transition-all flex flex-col justify-between"
+                className="p-4 sm:p-6 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-white/20 hover:bg-white/[0.07] transition-all flex flex-col justify-between"
               >
                 <div>
-                  <div className="w-12 h-12 rounded-xl bg-[#1992d1]/15 border border-[#1992d1]/30 flex items-center justify-center text-[#1992d1] mb-4">
-                    <span className="material-symbols-outlined text-2xl">{adv.icon}</span>
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#1992d1]/15 border border-[#1992d1]/30 flex items-center justify-center text-[#1992d1] mb-3 sm:mb-4">
+                    <span className="material-symbols-outlined text-xl sm:text-2xl">{adv.icon}</span>
                   </div>
 
-                  <span className="text-xs font-bold text-sky-300 uppercase tracking-wide block mb-1">
+                  <span className="text-[11px] sm:text-xs font-bold text-sky-300 uppercase tracking-wide block mb-1">
                     {adv.highlight}
                   </span>
-                  <h4 className="text-lg font-bold text-white mb-2">{adv.title}</h4>
+                  <h4 className="text-base sm:text-lg font-bold text-white mb-1.5 sm:mb-2">{adv.title}</h4>
                   <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
                     {adv.description}
                   </p>
                 </div>
 
-                <div className="pt-4 border-t border-white/10 text-xs text-rose-300/90 flex items-start gap-2 bg-rose-500/10 p-3 rounded-xl">
+                <div className="pt-3 sm:pt-4 border-t border-white/10 text-xs text-rose-300/90 flex items-start gap-2 bg-rose-500/10 p-3 rounded-xl">
                   <span className="material-symbols-outlined text-sm shrink-0 mt-0.5 text-rose-400">
                     close
                   </span>
@@ -340,18 +340,60 @@ export function PricingSection({ showFullDetails = true, className = "" }: Prici
         </div>
 
         {/* Head-to-Head Comparison Table */}
-        <div className="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200/90 shadow-md mb-16">
-          <div className="max-w-2xl mb-8">
-            <span className="text-xs font-bold tracking-wider text-[#1992d1] uppercase mb-2 block">
+        <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 lg:p-10 border border-slate-200/90 shadow-md mb-8 sm:mb-14">
+          <div className="max-w-2xl mb-6 sm:mb-8">
+            <span className="text-xs font-bold tracking-wider text-[#1992d1] uppercase mb-1.5 block">
               Birebir Kıyaslama
             </span>
-            <h3 className="text-2xl sm:text-3xl font-black text-[#070d1c] tracking-tight">
+            <h3 className="text-xl sm:text-3xl font-black text-[#070d1c] tracking-tight">
               Eski Tip Masaüstü ERP vs. Erpovy Yeni Nesil Bulut
             </h3>
           </div>
 
-          <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs sm:text-sm border-collapse">
+          {/* Mobile Card List (block md:hidden) */}
+          <div className="block md:hidden space-y-3">
+            {HEAD_TO_HEAD_COMPARISON.map((row, idx) => (
+              <div
+                key={idx}
+                className="p-3.5 rounded-xl bg-slate-50/70 border border-slate-200/80"
+              >
+                <div className="font-bold text-xs sm:text-sm text-[#070d1c] mb-2.5 pb-2 border-b border-slate-200/80 flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-[#1992d1]" />
+                  <span>{row.feature}</span>
+                </div>
+
+                {/* Erpovy Solution */}
+                <div className="p-2.5 rounded-lg bg-sky-50/90 border border-sky-200/70 mb-2">
+                  <div className="flex items-center gap-1 text-[11px] font-bold text-[#1992d1] mb-0.5">
+                    <span className="material-symbols-outlined text-sm text-emerald-600">
+                      check_circle
+                    </span>
+                    <span>Erpovy Bulut Çözümü</span>
+                  </div>
+                  <p className="text-xs text-[#070d1c] font-semibold pl-4 leading-relaxed">
+                    {row.erpovy}
+                  </p>
+                </div>
+
+                {/* Traditional ERP */}
+                <div className="p-2.5 rounded-lg bg-rose-50/50 border border-rose-200/60">
+                  <div className="flex items-center gap-1 text-[11px] font-bold text-rose-600 mb-0.5">
+                    <span className="material-symbols-outlined text-sm text-rose-500">
+                      close
+                    </span>
+                    <span>Geleneksel ERP (Logo / Mikro vb.)</span>
+                  </div>
+                  <p className="text-xs text-slate-600 pl-4 leading-relaxed">
+                    {row.traditional}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Desktop Table View (hidden md:block) */}
+          <div className="hidden md:block overflow-x-auto">
+            <table className="w-full text-left text-xs sm:text-sm border-collapse min-w-[650px]">
               <thead>
                 <tr className="border-b border-slate-200">
                   <th className="py-3 px-4 font-bold text-slate-500 w-1/4">Karşılaştırma Kriteri</th>
@@ -392,20 +434,23 @@ export function PricingSection({ showFullDetails = true, className = "" }: Prici
 
         {/* Detailed Module Matrix (Expandable) */}
         {showFullDetails && (
-          <div className="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200/90 shadow-md mb-16">
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
+          <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 lg:p-10 border border-slate-200/90 shadow-md mb-8 sm:mb-14">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 sm:gap-4 mb-4 sm:mb-6">
               <div>
                 <span className="text-xs font-bold tracking-wider text-[#1992d1] uppercase mb-1 block">
                   Tüm Ayrıntılar
                 </span>
-                <h3 className="text-xl sm:text-2xl font-black text-[#070d1c]">
+                <h3 className="text-lg sm:text-2xl font-black text-[#070d1c]">
                   Modül ve Özellik Karşılaştırma Matrisi
                 </h3>
+                <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
+                  Paketler arasındaki tüm modül ve özellik farklarını detaylı inceleyin.
+                </p>
               </div>
               <button
                 type="button"
                 onClick={() => setShowMatrix(!showMatrix)}
-                className="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-[#070d1c] font-bold text-xs sm:text-sm inline-flex items-center gap-2 transition-colors cursor-pointer"
+                className="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-[#070d1c] font-bold text-xs sm:text-sm inline-flex items-center justify-center gap-2 transition-colors cursor-pointer shrink-0"
               >
                 <span>{showMatrix ? "Matrisi Daralt" : "Tüm Tabloyu İncele"}</span>
                 <span className="material-symbols-outlined text-base">
@@ -415,64 +460,74 @@ export function PricingSection({ showFullDetails = true, className = "" }: Prici
             </div>
 
             {showMatrix && (
-              <div className="overflow-x-auto pt-4 border-t border-slate-100 animate-in fade-in duration-200">
-                <table className="w-full text-left text-xs sm:text-sm border-collapse">
-                  <thead>
-                    <tr className="border-b border-slate-200 text-slate-600">
-                      <th className="py-3 px-4 font-bold">Özellik / Modül</th>
-                      <th className="py-3 px-4 font-bold text-center">Standart</th>
-                      <th className="py-3 px-4 font-bold text-center text-[#1992d1] bg-sky-50/50">
-                        Professional
-                      </th>
-                      <th className="py-3 px-4 font-bold text-center">Enterprise</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-slate-100">
-                    {DETAILED_MODULE_MATRIX.map((item, idx) => (
-                      <tr key={idx} className="hover:bg-slate-50 transition-colors">
-                        <td className="py-3.5 px-4 font-medium text-[#070d1c] flex items-center justify-between">
-                          <span>{item.name}</span>
-                          <span className="text-[10px] text-slate-400 font-normal px-2 py-0.5 rounded bg-slate-100">
-                            {item.category}
-                          </span>
-                        </td>
-                        <td className="py-3.5 px-4 text-center">
-                          {typeof item.standart === "boolean" ? (
-                            item.standart ? (
-                              <Check className="w-4 h-4 text-emerald-600 mx-auto" />
-                            ) : (
-                              <span className="text-slate-300">—</span>
-                            )
-                          ) : (
-                            <span className="font-semibold text-slate-700">{item.standart}</span>
-                          )}
-                        </td>
-                        <td className="py-3.5 px-4 text-center bg-sky-50/30">
-                          {typeof item.professional === "boolean" ? (
-                            item.professional ? (
-                              <Check className="w-4 h-4 text-[#1992d1] mx-auto stroke-[2.5]" />
-                            ) : (
-                              <span className="text-slate-300">—</span>
-                            )
-                          ) : (
-                            <span className="font-bold text-[#1992d1]">{item.professional}</span>
-                          )}
-                        </td>
-                        <td className="py-3.5 px-4 text-center">
-                          {typeof item.enterprise === "boolean" ? (
-                            item.enterprise ? (
-                              <Check className="w-4 h-4 text-purple-600 mx-auto" />
-                            ) : (
-                              <span className="text-slate-300">—</span>
-                            )
-                          ) : (
-                            <span className="font-semibold text-slate-700">{item.enterprise}</span>
-                          )}
-                        </td>
+              <div className="pt-4 border-t border-slate-100 animate-in fade-in duration-200">
+                {/* Mobile horizontal swipe indicator */}
+                <div className="md:hidden flex items-center justify-end gap-1 text-[11px] text-slate-400 mb-2.5">
+                  <span className="material-symbols-outlined text-sm">swipe</span>
+                  <span>Tabloyu sağa kaydırarak inceleyin</span>
+                </div>
+
+                <div className="overflow-x-auto -mx-2 sm:mx-0 px-2 sm:px-0">
+                  <table className="w-full text-left text-xs sm:text-sm border-collapse min-w-[580px]">
+                    <thead>
+                      <tr className="border-b border-slate-200 text-slate-600">
+                        <th className="py-3 px-3 sm:px-4 font-bold min-w-[180px]">Özellik / Modül</th>
+                        <th className="py-3 px-3 sm:px-4 font-bold text-center">Standart</th>
+                        <th className="py-3 px-3 sm:px-4 font-bold text-center text-[#1992d1] bg-sky-50/50">
+                          Professional
+                        </th>
+                        <th className="py-3 px-3 sm:px-4 font-bold text-center">Enterprise</th>
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
+                    </thead>
+                    <tbody className="divide-y divide-slate-100">
+                      {DETAILED_MODULE_MATRIX.map((item, idx) => (
+                        <tr key={idx} className="hover:bg-slate-50 transition-colors">
+                          <td className="py-3 px-3 sm:px-4 font-medium text-[#070d1c]">
+                            <div className="flex items-center justify-between gap-2">
+                              <span>{item.name}</span>
+                              <span className="text-[10px] text-slate-400 font-normal px-2 py-0.5 rounded bg-slate-100 shrink-0">
+                                {item.category}
+                              </span>
+                            </div>
+                          </td>
+                          <td className="py-3 px-3 sm:px-4 text-center">
+                            {typeof item.standart === "boolean" ? (
+                              item.standart ? (
+                                <Check className="w-4 h-4 text-emerald-600 mx-auto" />
+                              ) : (
+                                <span className="text-slate-300">—</span>
+                              )
+                            ) : (
+                              <span className="font-semibold text-slate-700">{item.standart}</span>
+                            )}
+                          </td>
+                          <td className="py-3 px-3 sm:px-4 text-center bg-sky-50/30">
+                            {typeof item.professional === "boolean" ? (
+                              item.professional ? (
+                                <Check className="w-4 h-4 text-[#1992d1] mx-auto stroke-[2.5]" />
+                              ) : (
+                                <span className="text-slate-300">—</span>
+                              )
+                            ) : (
+                              <span className="font-bold text-[#1992d1]">{item.professional}</span>
+                            )}
+                          </td>
+                          <td className="py-3 px-3 sm:px-4 text-center">
+                            {typeof item.enterprise === "boolean" ? (
+                              item.enterprise ? (
+                                <Check className="w-4 h-4 text-purple-600 mx-auto" />
+                              ) : (
+                                <span className="text-slate-300">—</span>
+                              )
+                            ) : (
+                              <span className="font-semibold text-slate-700">{item.enterprise}</span>
+                            )}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
               </div>
             )}
           </div>
