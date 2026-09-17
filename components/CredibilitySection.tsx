@@ -18,35 +18,35 @@ export function CredibilitySection() {
   ];
 
   return (
-    <section className="py-20 lg:py-28 bg-[#e2f1f9] text-[#070d1c] border-b border-[#1992d1]/15">
+    <section className="py-10 sm:py-14 md:py-20 lg:py-24 bg-[#e2f1f9] text-[#070d1c] border-b border-[#1992d1]/15">
       <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mb-16">
-          <span className="text-xs sm:text-sm font-semibold tracking-wider text-[#1992d1] uppercase mb-3 inline-block">
+        <div className="max-w-3xl mb-6 sm:mb-8 md:mb-12">
+          <span className="text-xs sm:text-sm font-semibold tracking-wider text-[#1992d1] uppercase mb-2 inline-block">
             Süreç ve Beklenti
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-[#070d1c] mb-4">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight text-[#070d1c] mb-3">
             İşinize nasıl uyacağını birlikte netleştirelim.
           </h2>
-          <p className="text-base sm:text-lg text-[#334155] leading-relaxed">
+          <p className="text-sm sm:text-base md:text-lg text-[#334155] leading-relaxed">
             Standart bir satış sunumu yerine, işletmenizin gerçek ihtiyaçlarına odaklanan bir ürün değerlendirmesi yapıyoruz.
           </p>
         </div>
 
         {/* 3 Step Sequence */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mb-8 sm:mb-12">
           {steps.map((s) => (
             <div
               key={s.number}
-              className="p-6 rounded-xl bg-white border border-slate-200/80 shadow-xs flex flex-col justify-between"
+              className="p-5 sm:p-6 rounded-2xl bg-white border border-slate-200/90 shadow-xs flex flex-col justify-between"
             >
               <div>
-                <span className="w-8 h-8 rounded-full bg-[#070d1c] text-white flex items-center justify-center text-sm font-bold mb-4">
+                <span className="w-8 h-8 rounded-full bg-[#070d1c] text-white flex items-center justify-center text-sm font-bold mb-3 sm:mb-4">
                   {s.number}
                 </span>
-                <h3 className="text-lg font-bold text-[#070d1c] mb-2">
+                <h3 className="text-base sm:text-lg font-bold text-[#070d1c] mb-1.5">
                   {s.title}
                 </h3>
-                <p className="text-sm text-[#334155] leading-relaxed">
+                <p className="text-xs sm:text-sm text-[#334155] leading-relaxed">
                   {s.description}
                 </p>
               </div>
@@ -55,7 +55,7 @@ export function CredibilitySection() {
         </div>
 
         {/* Security & Access Panel (Kontrollü erişim, düzenli kayıtlar) */}
-        <div className="rounded-3xl bg-[#070d1c] text-white p-8 sm:p-12 lg:p-14 border border-white/10 shadow-2xl relative overflow-hidden">
+        <div className="rounded-2xl sm:rounded-3xl bg-[#070d1c] text-white p-5 sm:p-10 lg:p-12 border border-white/10 shadow-xl relative overflow-hidden">
           {/* Subtle ambient lighting */}
           <div className="pointer-events-none absolute -top-24 -right-24 w-80 h-80 rounded-full bg-[#1992d1]/10 blur-3xl" />
 

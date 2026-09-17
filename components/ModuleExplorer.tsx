@@ -55,25 +55,25 @@ export function ModuleExplorer() {
   return (
     <section
       id="moduller"
-      className="py-20 lg:py-28 bg-[#0a1226]/60 light:bg-slate-100/70 border-y border-white/5 light:border-slate-200 transition-colors relative"
+      className="py-10 sm:py-14 md:py-20 lg:py-24 bg-[#0a1226]/60 light:bg-slate-100/70 border-y border-white/5 light:border-slate-200 transition-colors relative"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1992d1]/10 text-[#1992d1] text-xs font-semibold uppercase tracking-wider mb-4">
+        <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8 md:mb-10">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1992d1]/10 text-[#1992d1] text-xs font-semibold uppercase tracking-wider mb-3">
             <span className="material-symbols-outlined text-sm">widgets</span>
             <span>Geniş Modül Yelpazesi</span>
           </div>
-          <h2 className="text-2xl sm:text-4xl font-bold text-white light:text-slate-900 tracking-tight mb-4">
+          <h2 className="text-2xl sm:text-4xl font-bold text-white light:text-slate-900 tracking-tight mb-3">
             İşinize uygun modüller, aynı Erpovy deneyimi.
           </h2>
-          <p className="text-base sm:text-lg text-slate-300 light:text-slate-600">
+          <p className="text-sm sm:text-base md:text-lg text-slate-300 light:text-slate-600">
             Finanstan depoya, satıştan üretime kadar işletmenizin ihtiyaç duyduğu alanları keşfedin.
           </p>
         </div>
 
         {/* Filter and Search Bar */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-10">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-3 sm:gap-4 mb-6 sm:mb-8">
           {/* Category Tabs */}
           <div
             className="flex items-center gap-1.5 overflow-x-auto w-full md:w-auto pb-2 md:pb-0 scrollbar-none"

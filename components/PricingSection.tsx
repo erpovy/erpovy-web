@@ -37,27 +37,27 @@ export function PricingSection({ showFullDetails = true, className = "" }: Prici
   };
 
   return (
-    <section id="fiyatlar" className={`py-20 lg:py-28 relative ${className}`}>
+    <section id="fiyatlar" className={`py-10 sm:py-14 md:py-20 lg:py-24 relative ${className}`}>
       <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 lg:mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1992d1]/15 text-[#1992d1] text-xs font-bold uppercase tracking-wider mb-4 border border-[#1992d1]/25">
+        <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8 md:mb-12">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1992d1]/15 text-[#1992d1] text-xs font-bold uppercase tracking-wider mb-3 sm:mb-4 border border-[#1992d1]/25">
             <Sparkles className="w-3.5 h-3.5" />
             <span>Şeffaf ve Öngörülebilir Yatırım</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#070d1c] tracking-tight leading-tight mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-[#070d1c] tracking-tight leading-tight mb-3 sm:mb-4">
             Gizli Maliyetsiz. Sürpriz Bakım Bedelsiz.{" "}
             <span className="text-[#1992d1]">İşinizle Büyüyen Fiyatlandırma.</span>
           </h2>
 
-          <p className="text-base sm:text-lg text-[#334155] leading-relaxed">
+          <p className="text-sm sm:text-base md:text-lg text-[#334155] leading-relaxed">
             Hantal masaüstü programlarına, 100.000 TL&apos;lik sunucu yatırımlarına ve zorunlu LEM bakım bedellerine son verin.
             İşletmenizin ölçeğine uygun şeffaf paketlerle hemen dijitalleşin.
           </p>
 
           {/* ROI Announcement Banner */}
-          <div className="mt-6 inline-flex flex-col sm:flex-row items-center gap-2 sm:gap-3 px-5 py-3 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-900 text-xs sm:text-sm font-medium shadow-xs">
+          <div className="mt-4 sm:mt-6 inline-flex flex-col sm:flex-row items-center gap-2 sm:gap-3 px-4 sm:px-5 py-2.5 sm:py-3 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-900 text-xs sm:text-sm font-medium shadow-xs">
             <span className="flex items-center gap-1.5 font-bold text-emerald-700">
               <Zap className="w-4 h-4 text-emerald-600 fill-emerald-500 shrink-0" />
               Yatırım Getirisi (ROI) Gerçeği:
@@ -68,11 +68,11 @@ export function PricingSection({ showFullDetails = true, className = "" }: Prici
           </div>
 
           {/* Billing Switcher (Annual vs Monthly perspective) */}
-          <div className="mt-8 inline-flex p-1 rounded-xl bg-slate-200/80 border border-slate-300">
+          <div className="mt-6 sm:mt-8 inline-flex p-1 rounded-xl bg-slate-200/80 border border-slate-300">
             <button
               type="button"
               onClick={() => setBillingPeriod("annual")}
-              className={`px-5 py-2 rounded-lg text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+              className={`px-4 sm:px-5 py-2 rounded-lg text-xs sm:text-sm font-bold transition-all cursor-pointer ${
                 billingPeriod === "annual"
                   ? "bg-[#070d1c] text-white shadow-md"
                   : "text-slate-600 hover:text-slate-900"
@@ -83,7 +83,7 @@ export function PricingSection({ showFullDetails = true, className = "" }: Prici
             <button
               type="button"
               onClick={() => setBillingPeriod("monthly")}
-              className={`px-5 py-2 rounded-lg text-xs sm:text-sm font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
+              className={`px-4 sm:px-5 py-2 rounded-lg text-xs sm:text-sm font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
                 billingPeriod === "monthly"
                   ? "bg-[#070d1c] text-white shadow-md"
                   : "text-slate-600 hover:text-slate-900"
@@ -98,7 +98,7 @@ export function PricingSection({ showFullDetails = true, className = "" }: Prici
         </div>
 
         {/* 3 Pricing Cards Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-8 items-stretch mb-10 sm:mb-16">
           {PRICING_PLANS.map((plan) => {
             const isPopular = plan.popular;
 

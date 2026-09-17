@@ -20,18 +20,18 @@ export default function PricingPage() {
       <Header />
       <main className="flex-1">
         {/* Top Hero Trust Strip */}
-        <div className="bg-[#070d1c] text-white pt-12 pb-16 border-b border-white/10 relative overflow-hidden">
+        <div className="bg-[#070d1c] text-white pt-8 sm:pt-12 pb-10 sm:pb-16 border-b border-white/10 relative overflow-hidden">
           <div className="pointer-events-none absolute -top-24 -right-24 w-96 h-96 bg-[#1992d1]/15 rounded-full blur-3xl" />
           <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-            <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-sky-500/10 text-sky-300 border border-sky-500/20 text-xs font-bold uppercase tracking-wider mb-4">
+            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/10 text-sky-300 border border-sky-500/20 text-xs font-bold uppercase tracking-wider mb-3">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
               Şeffaf Kurumsal Lisanslama
             </span>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight max-w-4xl mx-auto mb-6">
+            <h1 className="text-2xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight max-w-4xl mx-auto mb-4 sm:mb-6">
               İşletmeniz İçin Doğru Paket, <br />
               <span className="text-[#1992d1]">Öngörülebilir Yıllık Maliyet.</span>
             </h1>
-            <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed mb-10">
+            <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed mb-6 sm:mb-10">
               Sunucu yatırımı yok. Zorunlu LEM faturası yok. RDP veya VPN çilesi yok.
               İhtiyacınıza uygun paketi seçin, işletmenizi aynı gün modern buluta taşıyın.
             </p>

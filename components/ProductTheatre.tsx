@@ -38,26 +38,26 @@ export function ProductTheatre() {
   return (
     <section
       id="urun-tiyatrosu"
-      className="py-20 lg:py-28 bg-[#070d1c] text-white border-b border-white/10 relative"
+      className="py-10 sm:py-14 md:py-20 lg:py-24 bg-[#070d1c] text-white border-b border-white/10 relative"
     >
       <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="max-w-3xl mb-12">
-          <span className="text-xs sm:text-sm font-semibold tracking-wider text-[#1992d1] uppercase mb-3 inline-block">
+        <div className="max-w-3xl mb-6 sm:mb-8 md:mb-10">
+          <span className="text-xs sm:text-sm font-semibold tracking-wider text-[#1992d1] uppercase mb-2 sm:mb-3 inline-block">
             Ürün Sahnesi
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-tight text-white mb-3 sm:mb-4">
             Önce sizin işinize bakan ekran.
           </h2>
-          <p className="text-base sm:text-lg text-slate-300 leading-relaxed">
+          <p className="text-sm sm:text-base md:text-lg text-slate-300 leading-relaxed">
             Bir özellik listesi okumak yerine, günlük işinizde bakacağınız bilgileri keşfedin.
           </p>
         </div>
 
         {/* Tab Selection Bar */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-white/10 mb-8">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 pb-3 sm:pb-4 border-b border-white/10 mb-6 sm:mb-8">
           <div
-            className="flex items-center gap-2 overflow-x-auto pb-2 sm:pb-0"
+            className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto pb-1 sm:pb-0 scrollbar-none"
             role="tablist"
             aria-label="Ürün Görünümleri"
           >
@@ -66,7 +66,7 @@ export function ProductTheatre() {
               role="tab"
               aria-selected={activeTab === "finans"}
               onClick={() => setActiveTab("finans")}
-              className={`px-5 py-2.5 rounded-lg text-sm font-semibold transition-all flex items-center gap-2 whitespace-nowrap ${
+              className={`px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-lg text-xs sm:text-sm font-semibold transition-all flex items-center gap-2 whitespace-nowrap cursor-pointer ${
                 activeTab === "finans"
                   ? "bg-[#1992d1] text-white shadow-md shadow-[#1992d1]/20"
                   : "bg-white/5 text-slate-400 hover:text-white hover:bg-white/10"
@@ -81,7 +81,7 @@ export function ProductTheatre() {
               role="tab"
               aria-selected={activeTab === "stok"}
               onClick={() => setActiveTab("stok")}
-              className={`px-5 py-2.5 rounded-lg text-sm font-semibold transition-all flex items-center gap-2 whitespace-nowrap ${
+              className={`px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-lg text-xs sm:text-sm font-semibold transition-all flex items-center gap-2 whitespace-nowrap cursor-pointer ${
                 activeTab === "stok"
                   ? "bg-[#1992d1] text-white shadow-md shadow-[#1992d1]/20"
                   : "bg-white/5 text-slate-400 hover:text-white hover:bg-white/10"
@@ -96,7 +96,7 @@ export function ProductTheatre() {
               role="tab"
               aria-selected={activeTab === "operasyon"}
               onClick={() => setActiveTab("operasyon")}
-              className={`px-5 py-2.5 rounded-lg text-sm font-semibold transition-all flex items-center gap-2 whitespace-nowrap ${
+              className={`px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-lg text-xs sm:text-sm font-semibold transition-all flex items-center gap-2 whitespace-nowrap cursor-pointer ${
                 activeTab === "operasyon"
                   ? "bg-[#1992d1] text-white shadow-md shadow-[#1992d1]/20"
                   : "bg-white/5 text-slate-400 hover:text-white hover:bg-white/10"
@@ -114,7 +114,7 @@ export function ProductTheatre() {
         </div>
 
         {/* View Content Panel */}
-        <div className="rounded-2xl bg-[#0a1226] border border-white/10 p-6 sm:p-8 shadow-2xl">
+        <div className="rounded-2xl bg-[#0a1226] border border-white/10 p-4 sm:p-7 md:p-8 shadow-2xl">
           {/* TAB 1: FINANS */}
           {activeTab === "finans" && (
             <div className="space-y-6">

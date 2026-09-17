@@ -39,13 +39,13 @@ export function FaqRedesign() {
   ];
 
   return (
-    <section id="sss" className="py-20 lg:py-28 bg-[#e2f1f9] text-[#070d1c]">
+    <section id="sss" className="py-10 sm:py-14 md:py-20 lg:py-24 bg-[#e2f1f9] text-[#070d1c]">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-14">
-          <span className="text-xs sm:text-sm font-semibold tracking-wider text-[#1992d1] uppercase mb-3 inline-block">
+        <div className="mb-6 sm:mb-8 md:mb-10">
+          <span className="text-xs sm:text-sm font-semibold tracking-wider text-[#1992d1] uppercase mb-2 inline-block">
             Merak Edilenler
           </span>
-          <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-[#070d1c]">
+          <h2 className="text-2xl sm:text-4xl font-black tracking-tight text-[#070d1c]">
             Sıkça Sorulan Sorular
           </h2>
         </div>
@@ -54,7 +54,7 @@ export function FaqRedesign() {
           {faqs.map((faq) => {
             const isOpen = openId === faq.id;
             return (
-              <div key={faq.id} className="py-5">
+              <div key={faq.id} className="py-3.5 sm:py-5">
                 <button
                   type="button"
                   onClick={() => setOpenId(isOpen ? null : faq.id)}

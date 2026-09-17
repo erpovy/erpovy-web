@@ -65,16 +65,16 @@ export function SectorRows() {
   };
 
   return (
-    <section id="sektorler" className="py-20 lg:py-28 bg-[#e2f1f9] text-[#070d1c] border-b border-[#1992d1]/15">
+    <section id="sektorler" className="py-10 sm:py-14 md:py-20 lg:py-24 bg-[#e2f1f9] text-[#070d1c] border-b border-[#1992d1]/15">
       <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
-        <AnimatedContainer className="max-w-3xl mb-16">
-          <span className="text-xs sm:text-sm font-semibold tracking-wider text-[#1992d1] uppercase mb-3 inline-block">
+        <AnimatedContainer className="max-w-3xl mb-6 sm:mb-8 md:mb-12">
+          <span className="text-xs sm:text-sm font-semibold tracking-wider text-[#1992d1] uppercase mb-2 sm:mb-3 inline-block">
             Sektörel Yaklaşım
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-[#070d1c] mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-tight text-[#070d1c] mb-3 sm:mb-4">
             Sizin sektörünüz. Sizin öncelikleriniz.
           </h2>
-          <p className="text-base sm:text-lg text-[#334155] leading-relaxed">
+          <p className="text-sm sm:text-base md:text-lg text-[#334155] leading-relaxed">
             Önce çözmek istediğiniz işi konuşalım. Sonra ilgili modülleri birlikte inceleyelim.
           </p>
         </AnimatedContainer>
@@ -82,7 +82,7 @@ export function SectorRows() {
         {/* Dashed grid container matching user's component */}
         <AnimatedContainer
           delay={0.3}
-          className="grid grid-cols-1 divide-x divide-y divide-dashed border border-dashed border-[#1992d1]/30 bg-white/60 backdrop-blur-xs rounded-2xl overflow-hidden sm:grid-cols-2 md:grid-cols-3 shadow-sm"
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3.5 sm:gap-0 sm:divide-x sm:divide-y sm:divide-dashed border-0 sm:border sm:border-dashed sm:border-[#1992d1]/30 sm:bg-white/60 sm:backdrop-blur-xs rounded-2xl sm:overflow-hidden sm:shadow-sm"
         >
           {SECTORS_DATA.map((sector) => {
             const IconComponent = sectorIconMap[sector.id] || Factory;
@@ -104,10 +104,10 @@ export function SectorRows() {
                     icon: IconComponent,
                     description: sector.description,
                   }}
-                  className={`h-full transition-all duration-300 ${
+                  className={`h-full transition-all duration-300 rounded-2xl sm:rounded-none border sm:border-0 border-slate-200/90 shadow-xs sm:shadow-none ${
                     sector.isComingSoon
                       ? "bg-slate-900/[0.02] hover:bg-slate-900/[0.04]"
-                      : "bg-transparent hover:bg-white/90"
+                      : "bg-white/95 sm:bg-transparent hover:bg-white"
                   }`}
                 />
 

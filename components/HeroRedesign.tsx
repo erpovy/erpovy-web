@@ -53,7 +53,7 @@ export function HeroRedesign() {
   ];
 
   return (
-    <section className="relative pt-12 pb-16 lg:pt-16 lg:pb-20 bg-[#e2f1f9] text-[#070d1c] border-b border-[#1992d1]/15 overflow-hidden">
+    <section className="relative pt-8 pb-12 sm:pt-12 sm:pb-16 lg:pt-16 lg:pb-20 bg-[#e2f1f9] text-[#070d1c] border-b border-[#1992d1]/15 overflow-hidden">
       {/* Particle Drift Background Effect */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0 opacity-70">
         <ParticleDrift
@@ -65,28 +65,28 @@ export function HeroRedesign() {
       </div>
 
       <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-16 items-center">
           {/* Left Column: 55% Editorial Copy */}
           <div className="lg:col-span-7 flex flex-col items-start">
-            <span className="text-xs sm:text-sm font-semibold tracking-wider text-[#1992d1] uppercase mb-4 inline-block px-3 py-1 bg-sky-500/10 rounded-full border border-sky-500/20 backdrop-blur-xs">
+            <span className="text-xs sm:text-sm font-semibold tracking-wider text-[#1992d1] uppercase mb-3 sm:mb-4 inline-block px-3 py-1 bg-sky-500/10 rounded-full border border-sky-500/20 backdrop-blur-xs">
               İşletmeniz için ortak çalışma alanı
             </span>
 
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-black text-[#070d1c] tracking-tight leading-[1.02] mb-6">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-[#070d1c] tracking-tight leading-[1.08] mb-4 sm:mb-6">
               İşiniz büyüsün.<br />
               <span className="text-slate-500">Karmaşa değil.</span>
             </h1>
 
-            <p className="text-lg sm:text-xl text-[#334155] leading-relaxed max-w-2xl mb-8 font-normal">
+            <p className="text-base sm:text-lg lg:text-xl text-[#334155] leading-relaxed max-w-2xl mb-6 sm:mb-8 font-normal">
               Satış nerede kaldı, stok yeterli mi, ödeme geldi mi? Erpovy ile işinizin farklı adımlarını aynı yerden takip edin.
             </p>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto mb-4">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto mb-4">
               <AwardBadge
                 type="erpovy-demo"
                 theme="brand-dark"
-                link="#demo"
+                link="/demo"
                 badgeLabel="ERPOVY · DEMO"
                 titleText="İşime uygun demoyu gör"
                 className="w-full sm:w-auto"
@@ -104,14 +104,26 @@ export function HeroRedesign() {
               </ButtonWithIcon>
             </div>
 
-            <p className="text-xs sm:text-sm text-slate-500">
-              İhtiyacınız olan modüller üzerinden bir ürün görüşmesi.
-            </p>
+            {/* Quick Trust Tags on Mobile & Desktop */}
+            <div className="flex flex-wrap items-center gap-2 pt-1 text-[11px] sm:text-xs font-semibold text-slate-600">
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/80 border border-slate-200/80 shadow-2xs">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                %100 Bulut Tabanlı
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/80 border border-slate-200/80 shadow-2xs">
+                <span className="w-1.5 h-1.5 rounded-full bg-sky-500" />
+                Sıfır Sunucu Maliyeti
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/80 border border-slate-200/80 shadow-2xs">
+                <span className="w-1.5 h-1.5 rounded-full bg-purple-500" />
+                20 Dk Canlı Demo
+              </span>
+            </div>
           </div>
 
           {/* Right Column: 45% Navy Order Story Panel */}
           <div id="hikaye" className="lg:col-span-5 w-full">
-            <div className="rounded-2xl bg-[#070d1c] text-white p-6 sm:p-7 border border-white/10 shadow-2xl backdrop-blur-md">
+            <div className="rounded-2xl bg-[#070d1c] text-white p-4 sm:p-7 border border-white/10 shadow-2xl backdrop-blur-md">
               {/* Header of Story Panel */}
               <div className="flex items-center justify-between pb-4 border-b border-white/10 mb-5">
                 <div>
@@ -194,7 +206,7 @@ export function HeroRedesign() {
         </div>
 
         {/* Ruled Row Under Hero */}
-        <div className="mt-16 pt-8 border-t border-black/[0.08] flex flex-col md:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-slate-600">
+        <div className="mt-8 sm:mt-12 lg:mt-16 pt-6 sm:pt-8 border-t border-black/[0.08] flex flex-col md:flex-row items-center justify-between gap-3 sm:gap-4 text-xs sm:text-sm text-slate-600">
           <div className="font-bold text-[#070d1c] tracking-tight text-base sm:text-lg">
             Satıştan finansa. Depodan üretime.
           </div>

@@ -42,25 +42,24 @@ export function CompactModules() {
   }, [selectedCategory, showAll]);
 
   return (
-    <section id="moduller" className="py-20 lg:py-28 bg-[#e2f1f9] text-[#070d1c] border-b border-[#1992d1]/15">
+    <section id="moduller" className="py-10 sm:py-14 md:py-20 lg:py-24 bg-[#e2f1f9] text-[#070d1c] border-b border-[#1992d1]/15">
       <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mb-12">
-          <span className="text-xs sm:text-sm font-semibold tracking-wider text-[#1992d1] uppercase mb-3 inline-block">
+        <div className="max-w-3xl mb-6 sm:mb-8 md:mb-10">
+          <span className="text-xs sm:text-sm font-semibold tracking-wider text-[#1992d1] uppercase mb-2 sm:mb-3 inline-block">
             Modül Mimarisi
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-[#070d1c] mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-tight text-[#070d1c] mb-3 sm:mb-4">
             İhtiyacınız kadarını seçin. Büyük resmi görün.
           </h2>
-          <p className="text-base sm:text-lg text-[#334155] leading-relaxed">
+          <p className="text-sm sm:text-base md:text-lg text-[#334155] leading-relaxed">
             İlgili modülleri keşfedin; kullanım kapsamını işletmenizin önceliklerine göre birlikte değerlendirelim.
           </p>
         </div>
 
-        {/* Category Routes */}
-        <div className="flex flex-wrap items-center justify-between gap-3 pb-6 border-b border-black/[0.08] mb-8">
-          {/* Grouped Outcome Paths */}
+        {/* Category Routes - Swipeable on mobile, wrap on desktop */}
+        <div className="flex flex-col gap-3 pb-4 sm:pb-6 border-b border-black/[0.08] mb-6 sm:mb-8">
           <div
-            className="flex flex-wrap items-center gap-2"
+            className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none sm:flex-wrap -mx-4 px-4 sm:mx-0 sm:px-0"
             role="tablist"
             aria-label="Modül Grupları"
           >
@@ -77,7 +76,7 @@ export function CompactModules() {
                     setShowAll(false);
                     setSelectedCategory(cat);
                   }}
-                  className={`px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all flex items-center gap-2 cursor-pointer shadow-xs ${
+                  className={`px-3.5 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all flex items-center gap-2 cursor-pointer shadow-xs whitespace-nowrap shrink-0 ${
                     isSelected
                       ? "bg-[#070d1c] text-white shadow-md shadow-black/10 ring-2 ring-[#070d1c]"
                       : "bg-white text-slate-700 hover:bg-slate-50 hover:text-[#070d1c] border border-slate-300/80"
@@ -100,7 +99,7 @@ export function CompactModules() {
             <button
               type="button"
               onClick={() => setShowAll(!showAll)}
-              className={`px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all cursor-pointer shadow-xs ${
+              className={`px-3.5 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all cursor-pointer shadow-xs whitespace-nowrap shrink-0 ${
                 showAll
                   ? "bg-[#1992d1] text-white shadow-md shadow-[#1992d1]/20 ring-2 ring-[#1992d1]"
                   : "bg-white text-[#1992d1] hover:bg-sky-50 border border-sky-200"
@@ -112,7 +111,7 @@ export function CompactModules() {
         </div>
 
         {/* Compact Modules List */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {filteredModules.map((mod) => (
             <div
               key={mod.id}

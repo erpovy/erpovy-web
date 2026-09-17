@@ -7,16 +7,16 @@ export function PricingFaq() {
   const [openIdx, setOpenIdx] = useState<number | null>(0);
 
   return (
-    <section id="fiyat-sss" className="py-16 lg:py-24 bg-[#e2f1f9] text-[#070d1c] border-t border-[#1992d1]/15">
+    <section id="fiyat-sss" className="py-10 sm:py-14 md:py-20 lg:py-24 bg-[#e2f1f9] text-[#070d1c] border-t border-[#1992d1]/15">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-12">
+        <div className="mb-6 sm:mb-8 md:mb-10">
           <span className="text-xs sm:text-sm font-semibold tracking-wider text-[#1992d1] uppercase mb-2 inline-block">
             Merak Edilenler & Güvenceler
           </span>
-          <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-[#070d1c]">
+          <h2 className="text-2xl sm:text-4xl font-black tracking-tight text-[#070d1c]">
             Fiyatlandırma & Lisanslama Hakkında Sorular
           </h2>
-          <p className="text-sm sm:text-base text-[#334155] mt-2">
+          <p className="text-xs sm:text-sm md:text-base text-[#334155] mt-2">
             Lisans bedellerimiz, LEM bakım politikamız, veri taşıma ve kullanıcı limitleri hakkında en çok sorulanlar.
           </p>
         </div>
@@ -25,7 +25,7 @@ export function PricingFaq() {
           {PRICING_FAQ.map((faq, index) => {
             const isOpen = openIdx === index;
             return (
-              <div key={index} className="py-5">
+              <div key={index} className="py-3.5 sm:py-5">
                 <button
                   type="button"
                   onClick={() => setOpenIdx(isOpen ? null : index)}

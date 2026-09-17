@@ -108,82 +108,82 @@ export function ClosingDemoSection() {
   ];
 
   return (
-    <section id="demo" className="py-20 lg:py-28 bg-gradient-to-br from-[#127fb9] via-[#1992d1] to-[#0c6b9e] text-white relative overflow-hidden">
+    <section id="demo" className="py-10 sm:py-14 md:py-20 lg:py-24 bg-gradient-to-br from-[#127fb9] via-[#1992d1] to-[#0c6b9e] text-white relative overflow-hidden">
       {/* Decorative ambient lighting */}
       <div className="pointer-events-none absolute -top-40 -right-40 w-96 h-96 rounded-full bg-white/10 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-[#070d1c]/20 blur-3xl" />
 
       <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-start">
           {/* Left Column: Heading, value props & visual flow */}
           <div className="lg:col-span-6 flex flex-col items-start pt-2">
-            <span className="text-xs sm:text-sm font-bold tracking-wider text-sky-200 uppercase mb-4 px-3.5 py-1.5 bg-white/10 backdrop-blur-md rounded-full border border-white/15 inline-flex items-center gap-2">
+            <span className="text-xs sm:text-sm font-bold tracking-wider text-sky-200 uppercase mb-3 px-3 py-1 bg-white/10 backdrop-blur-md rounded-full border border-white/15 inline-flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-sky-300 animate-pulse" />
               Somut Bir Sonraki Adım
             </span>
 
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.05] mb-6">
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight mb-4">
               Bir sunum izlemeyin.<br />
               <span className="text-sky-200">Kendi işinizi görün.</span>
             </h2>
 
-            <p className="text-base sm:text-lg text-white/90 leading-relaxed font-normal mb-8 max-w-lg">
+            <p className="text-sm sm:text-base md:text-lg text-white/90 leading-relaxed font-normal mb-6 max-w-lg">
               İşletmenizin önceliklerini paylaşın. Ezber slaytlar yerine, işinize en uygun modüller ve gerçekçi iş akışlarıyla 20 dakikada odaklı bir yol haritası çizelim.
             </p>
 
             {/* 3 Step Visual Flow */}
-            <div className="w-full space-y-3 mb-8">
-              <div className="flex items-start gap-3.5 p-3.5 rounded-xl bg-white/10 backdrop-blur-md border border-white/15 text-white">
-                <div className="w-8 h-8 rounded-lg bg-white/20 flex items-center justify-center font-bold text-sm text-sky-200 shrink-0">
+            <div className="w-full space-y-2.5 sm:space-y-3 mb-6">
+              <div className="flex items-start gap-3 p-3 rounded-xl bg-white/10 backdrop-blur-md border border-white/15 text-white">
+                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-white/20 flex items-center justify-center font-bold text-xs sm:text-sm text-sky-200 shrink-0">
                   1
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-white">İhtiyaç ve Öncelik Belirleme</h4>
-                  <p className="text-xs text-white/80 mt-0.5">Finans, stok, üretim ya da satış süreçlerinizdeki ana darboğazları konuşuruz.</p>
+                  <h4 className="text-xs sm:text-sm font-bold text-white">İhtiyaç ve Öncelik Belirleme</h4>
+                  <p className="text-[11px] sm:text-xs text-white/80 mt-0.5">Finans, stok, üretim ya da satış süreçlerinizdeki ana darboğazları konuşuruz.</p>
                 </div>
               </div>
 
-              <div className="flex items-start gap-3.5 p-3.5 rounded-xl bg-white/10 backdrop-blur-md border border-white/15 text-white">
-                <div className="w-8 h-8 rounded-lg bg-white/20 flex items-center justify-center font-bold text-sm text-sky-200 shrink-0">
+              <div className="flex items-start gap-3 p-3 rounded-xl bg-white/10 backdrop-blur-md border border-white/15 text-white">
+                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-white/20 flex items-center justify-center font-bold text-xs sm:text-sm text-sky-200 shrink-0">
                   2
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-white">Canlı İş Akışı Simülasyonu</h4>
-                  <p className="text-xs text-white/80 mt-0.5">Sektörünüze özel örnek verilerle tekliften tahsilata akışı uçtan uca inceleriz.</p>
+                  <h4 className="text-xs sm:text-sm font-bold text-white">Canlı İş Akışı Simülasyonu</h4>
+                  <p className="text-[11px] sm:text-xs text-white/80 mt-0.5">Sektörünüze özel örnek verilerle tekliften tahsilata akışı uçtan uca inceleriz.</p>
                 </div>
               </div>
 
-              <div className="flex items-start gap-3.5 p-3.5 rounded-xl bg-white/10 backdrop-blur-md border border-white/15 text-white">
-                <div className="w-8 h-8 rounded-lg bg-white/20 flex items-center justify-center font-bold text-sm text-sky-200 shrink-0">
+              <div className="flex items-start gap-3 p-3 rounded-xl bg-white/10 backdrop-blur-md border border-white/15 text-white">
+                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-white/20 flex items-center justify-center font-bold text-xs sm:text-sm text-sky-200 shrink-0">
                   3
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-white">Net Geçiş ve Modül Planı</h4>
-                  <p className="text-xs text-white/80 mt-0.5">Yalnızca kullanacağınız modülleri içeren sade bir uygulama takvimi sunarız.</p>
+                  <h4 className="text-xs sm:text-sm font-bold text-white">Net Geçiş ve Modül Planı</h4>
+                  <p className="text-[11px] sm:text-xs text-white/80 mt-0.5">Yalnızca kullanacağınız modülleri içeren sade bir uygulama takvimi sunarız.</p>
                 </div>
               </div>
             </div>
 
             {/* Trust highlights */}
-            <div className="flex flex-wrap items-center gap-6 text-xs text-white/85 pt-2 border-t border-white/15 w-full">
-              <div className="flex items-center gap-2">
-                <span className="material-symbols-outlined text-base text-sky-200">timer</span>
-                <span>20 Dakikalık Odaklı Görüşme</span>
+            <div className="flex flex-wrap items-center gap-4 sm:gap-6 text-xs text-white/85 pt-3 border-t border-white/15 w-full">
+              <div className="flex items-center gap-1.5">
+                <span className="material-symbols-outlined text-sm sm:text-base text-sky-200">timer</span>
+                <span>20 Dk Odaklı Görüşme</span>
               </div>
-              <div className="flex items-center gap-2">
-                <span className="material-symbols-outlined text-base text-sky-200">verified_user</span>
+              <div className="flex items-center gap-1.5">
+                <span className="material-symbols-outlined text-sm sm:text-base text-sky-200">verified_user</span>
                 <span>Satış Baskısı Yok</span>
               </div>
-              <div className="flex items-center gap-2">
-                <span className="material-symbols-outlined text-base text-sky-200">support_agent</span>
-                <span>Doğrudan Ürün Uzmanı ile</span>
+              <div className="flex items-center gap-1.5">
+                <span className="material-symbols-outlined text-sm sm:text-base text-sky-200">support_agent</span>
+                <span>Ürün Uzmanı ile</span>
               </div>
             </div>
           </div>
 
           {/* Right Column: Refined Demo Form */}
           <div className="lg:col-span-6 w-full">
-            <div className="rounded-2xl bg-[#070d1c] text-white p-6 sm:p-9 shadow-2xl border border-white/10">
+            <div className="rounded-2xl bg-[#070d1c] text-white p-5 sm:p-8 lg:p-9 shadow-2xl border border-white/10">
               {/* Context prefill badge if selected */}
               {selectedContext && (
                 <div className="mb-4 px-3 py-1.5 rounded-md bg-[#1992d1]/20 border border-[#1992d1]/40 text-xs text-sky-200 flex items-center justify-between">
