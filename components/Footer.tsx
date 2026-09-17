@@ -6,8 +6,8 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#070d1c] text-white border-t border-white/10 pt-10 sm:pt-14 pb-8 sm:pb-12 text-sm">
-      <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
+    <footer className="bg-[#142f3d] text-white border-t border-white/10 pt-10 sm:pt-14 pb-8 sm:pb-12 text-sm">
+      <div className="max-w-[1240px] w-[calc(100%-40px)] md:w-[calc(100%-64px)] xl:w-[calc(100%-96px)] mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10 pb-8 sm:pb-12 border-b border-white/10">
           {/* Col 1: Brand & Positioning */}
           <div className="space-y-4">
@@ -37,34 +37,34 @@ export function Footer() {
             </h3>
             <ul className="space-y-2.5 text-xs sm:text-sm text-slate-400">
               <li>
-                <a href="/#hikaye" className="hover:text-white transition-colors">
+                <Link href="/#hikaye" className="hover:text-white transition-colors">
                   Ürünü Keşfet
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/#sektorler" className="hover:text-white transition-colors">
+                <Link href="/cozumler/" className="hover:text-white transition-colors">
                   Sektörel Çözümler
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/moduller" className="hover:text-white transition-colors">
+                <Link href="/moduller" className="hover:text-white transition-colors">
                   Modüller
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/fiyatlandirma" className="text-sky-300 hover:text-white transition-colors font-medium">
+                <Link href="/fiyatlandirma" className="text-sky-300 hover:text-white transition-colors font-medium">
                   Fiyatlandırma
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/demo" className="text-[#1992d1] hover:underline transition-colors font-semibold">
+                <Link href="/demo" className="text-[#1992d1] hover:underline transition-colors font-semibold">
                   Canlı Demo İste
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/#sss" className="hover:text-white transition-colors">
+                <Link href="/sss/" className="hover:text-white transition-colors">
                   Sıkça Sorulanlar (SSS)
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -76,29 +76,29 @@ export function Footer() {
             </h3>
             <ul className="space-y-2.5 text-xs sm:text-sm text-slate-400">
               <li>
-                <a href="/hakkimizda" className="hover:text-white transition-colors">
+                <Link href="/hakkimizda" className="hover:text-white transition-colors">
                   Hakkımızda
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/iletisim" className="hover:text-white transition-colors">
+                <Link href="/iletisim" className="hover:text-white transition-colors">
                   İletişim
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/gizlilik-politikasi" className="hover:text-white transition-colors">
+                <Link href="/gizlilik-politikasi" className="hover:text-white transition-colors">
                   Gizlilik Politikası
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/kullanim-kosullari" className="hover:text-white transition-colors">
+                <Link href="/kullanim-kosullari" className="hover:text-white transition-colors">
                   Kullanım Koşulları
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/kvkk" className="hover:text-white transition-colors">
+                <Link href="/kvkk" className="hover:text-white transition-colors">
                   KVKK Aydınlatma Metni
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -138,11 +138,11 @@ export function Footer() {
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <p>© {currentYear} Erpovy. Tüm hakları saklıdır.</p>
           <div className="flex items-center gap-4 text-[11px] text-slate-400">
-            <a href="/gizlilik-politikasi" className="hover:text-slate-300">Gizlilik</a>
+            <Link href="/gizlilik-politikasi" className="hover:text-slate-300">Gizlilik</Link>
             <span>•</span>
-            <a href="/kullanim-kosullari" className="hover:text-slate-300">Kullanım Şartları</a>
+            <Link href="/kullanim-kosullari" className="hover:text-slate-300">Kullanım Şartları</Link>
             <span>•</span>
-            <a href="/kvkk" className="hover:text-slate-300">KVKK</a>
+            <Link href="/kvkk" className="hover:text-slate-300">KVKK</Link>
           </div>
         </div>
       </div>

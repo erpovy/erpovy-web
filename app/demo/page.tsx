@@ -1,43 +1,16 @@
-import { Metadata } from "next";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
-import { ClosingDemoSection } from "@/components/ClosingDemoSection";
-
+import type { Metadata } from "next";
+import { Suspense } from "react";
+import Link from "next/link";
+import { InnerPage } from "@/components/InnerPage";
+import { InquiryForm } from "@/components/InquiryForm";
+import s from "@/components/InnerPages.module.css";
 export const metadata: Metadata = {
-  title: "Canlı Demo Talebi | Erpovy Yeni Nesil Bulut ERP Simülasyonu",
-  description:
-    "Erpovy'yi 20 dakikalık canlı oturumda inceleyin. Ezber slaytlar yerine kendi sektörünüze özel iş akışı simülasyonunu hemen ücretsiz keşfedin.",
-  alternates: {
-    canonical: "https://www.erpovy.com/demo",
-  },
+    title: "Canlı Demo Talebi | Erpovy Yeni Nesil Bulut ERP Simülasyonu",
+    description: "Erpovy'yi 20 dakikalık canlı oturumda inceleyin. Ezber slaytlar yerine kendi sektörünüze özel iş akışı simülasyonunu hemen ücretsiz keşfedin.",
+    alternates: {
+        canonical: "https://www.erpovy.com/demo",
+    },
 };
-
-export default function DemoPage() {
-  return (
-    <>
-      <Header />
-      <main className="flex-1">
-        {/* Dedicated Demo Page Wrapper */}
-        <div className="bg-[#070d1c] text-white pt-8 sm:pt-12 pb-6 sm:pb-8 border-b border-white/10 text-center">
-          <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/10 text-sky-300 border border-sky-500/20 text-xs font-bold uppercase tracking-wider mb-3">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-              Ücretsiz & Taahhütsüz Değerlendirme
-            </span>
-            <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight max-w-3xl mx-auto mb-3 sm:mb-4">
-              Bir Sunum İzlemeyin. <br />
-              <span className="text-[#1992d1]">Kendi İşinizin Akışını Görün.</span>
-            </h1>
-            <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
-              İşletmenizin önceliklerini paylaşın; ezber slaytlar yerine işinize en uygun modüller ve gerçekçi verilerle odaklı bir yol haritası çizelim.
-            </p>
-          </div>
-        </div>
-
-        {/* Demo Section with Form and Steps */}
-        <ClosingDemoSection />
-      </main>
-      <Footer />
-    </>
-  );
+export default function Page() {
+    return (<InnerPage label="Canlı demo" title="Sizin işiniz." accent="Sizin senaryonuz." description="20 dakikada, işletmenize uygun bir ürün turu. Önceliklerinizi paylaşın; görüşmeyi gerçekten görmek istediğiniz süreçlere ayıralım." closing={false}><section className={s.content}><div className={s.container}><div className={s.formLayout}><aside className={s.formAside}><span className={s.eyebrow}>GÖRÜŞMEDE SİZİ NELER BEKLİYOR?</span><h2>Birlikte bakalım.<br />Net bir fikirle ayrılın.</h2><p>Satış, stok ya da finans. Önce sizin için en önemli noktadan başlayalım.</p><div className={s.process}>{[{ title: "İşinizi tanıyalım", text: "Mevcut sisteminizi ve çözmek istediğiniz ihtiyaçları konuşalım." }, { title: "Ürünü keşfedin", text: "İlgili modülleri ve bir örnek iş akışını birlikte inceleyin." }, { title: "Sonraki adımı netleştirelim", text: "Paket, kullanıcı ve veri aktarımı kapsamını değerlendirelim." }].map((item, i) => <div key={item.title}><span>0{i + 1}</span><div><h3>{item.title}</h3><p>{item.text}</p></div></div>)}</div><Link className={s.contactLine} href="mailto:info@erpovy.com"><span>E-POSTA İLE ULAŞIN</span><strong>info@erpovy.com</strong></Link></aside><Suspense fallback={<div className={s.formPanel}>Form yükleniyor…</div>}><InquiryForm mode="demo"/></Suspense></div></div></section></InnerPage>);
 }

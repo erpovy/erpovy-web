@@ -1,49 +1,14 @@
-import { Metadata } from "next";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
-import { SectorRows } from "@/components/SectorRows";
-import { ClosingDemoSection } from "@/components/ClosingDemoSection";
-import { Briefcase } from "lucide-react";
-
+import type { Metadata } from "next";
+import { InnerPage } from "@/components/InnerPage";
+import { SectorCatalog } from "@/components/InnerPageInteractive";
+import s from "@/components/InnerPages.module.css";
 export const metadata: Metadata = {
-  title: "Erpovy Sektörel Çözümler | İmalat, Ticaret, Lojistik ERP",
-  description:
-    "İmalat, perakende, lojistik, otomotiv, gıda ve tarım sektörlerine özel bulut ERP çözümleri. İşletmenizin dinamiklerine uygun sektörel modülleri keşfedin.",
-  alternates: {
-    canonical: "https://www.erpovy.com/cozumler",
-  },
+    title: "Erpovy Sektörel Çözümler | İmalat, Ticaret, Lojistik ERP",
+    description: "İmalat, perakende, lojistik, otomotiv, gıda ve tarım sektörlerine özel bulut ERP çözümleri. İşletmenizin dinamiklerine uygun sektörel modülleri keşfedin.",
+    alternates: {
+        canonical: "https://www.erpovy.com/cozumler",
+    },
 };
-
-export default function CozumlerPage() {
-  return (
-    <>
-      <Header />
-      <main className="flex-1">
-        {/* Page Hero */}
-        <section className="bg-[#070d1c] text-white pt-8 sm:pt-14 pb-10 sm:pb-16 border-b border-white/10 relative overflow-hidden text-center">
-          <div className="pointer-events-none absolute -top-32 -right-32 w-96 h-96 bg-[#1992d1]/15 rounded-full blur-3xl" />
-          <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/10 text-sky-300 border border-sky-500/20 text-xs font-bold uppercase tracking-wider mb-3">
-              <Briefcase className="w-3.5 h-3.5" />
-              Sektöre Özel İş Süreçleri
-            </span>
-            <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight max-w-4xl mx-auto mb-3 sm:mb-5">
-              Her Sektörün Dinamiği Farklı, <br />
-              <span className="text-[#1992d1]">Çözüm Tek Merkezde: Erpovy.</span>
-            </h1>
-            <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
-              Üretimden dağıtıma, perakendeden servis sektörüne kadar her sektörün kendine özgü operasyonel ihtiyaçlarına uyum sağlayan modüler ERP kurguları.
-            </p>
-          </div>
-        </section>
-
-        {/* Sectors Interactive Grid */}
-        <SectorRows />
-
-        {/* Closing Demo Request CTA */}
-        <ClosingDemoSection />
-      </main>
-      <Footer />
-    </>
-  );
+export default function Page() {
+    return (<InnerPage label="Çözümler" title="İşinizi anlıyoruz." accent="Düzenini birlikte kuruyoruz." description="Her sektörün ritmi farklı. Kendi iş alanınızı seçin; ürünün sizin operasyonunuzla nerede buluştuğunu keşfedin."><section className={s.content}><div className={s.container}><SectorCatalog /><div className={s.sectionHead}><div><span className={s.eyebrow}>SEKTÖRÜNÜZDEN BAŞLAYAN BİR YOL HARİTASI</span><h2>Önce işinizi dinliyoruz.</h2></div><p>Hazır bir kapsam dayatmak yerine, mevcut süreçlerinizi ve önceliklerinizi birlikte değerlendiriyoruz.</p></div><div className={s.valueGrid}>{[{ title: "İhtiyacı anlayalım", text: "Ekibinizin günlük akışını, darboğazları ve büyüme hedeflerini konuşalım." }, { title: "Akışı birlikte görelim", text: "İlgili modülleri, sizin işinize yakın örnek bir süreç üzerinden inceleyelim." }, { title: "Geçişi planlayalım", text: "Veri aktarımı, kullanıcılar ve kurulum kapsamı için net bir başlangıç belirleyelim." }].map((item, i) => <article key={item.title}><span>0{i + 1}</span><h3>{item.title}</h3><p>{item.text}</p></article>)}</div></div></section></InnerPage>);
 }

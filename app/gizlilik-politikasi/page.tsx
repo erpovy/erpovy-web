@@ -1,45 +1,22 @@
-import { Metadata } from "next";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
-import { Shield, Lock, FileText } from "lucide-react";
-
+import type { Metadata } from "next";
+import Link from "next/link";
+import { InnerPage } from "@/components/InnerPage";
+import s from "@/components/InnerPages.module.css";
+import { Lock, FileText } from "lucide-react";
 export const metadata: Metadata = {
-  title: "Gizlilik Politikası | Erpovy Veri Güvenliği ve Taahhütler",
-  description:
-    "Erpovy platformunun kişisel ve kurumsal veri güvenliği ilkeleri, 256-Bit SSL şifreleme altyapısı, çerez politikası ve resmi gizlilik taahhütleri metni.",
-  alternates: {
-    canonical: "https://www.erpovy.com/gizlilik-politikasi",
-  },
+    title: "Gizlilik Politikası | Erpovy Veri Güvenliği ve Taahhütler",
+    description: "Erpovy platformunun kişisel ve kurumsal veri güvenliği ilkeleri, 256-Bit SSL şifreleme altyapısı, çerez politikası ve resmi gizlilik taahhütleri metni.",
+    alternates: {
+        canonical: "https://www.erpovy.com/gizlilik-politikasi",
+    },
 };
-
-export default function GizlilikPolitikasiPage() {
-  return (
-    <>
-      <Header />
-      <main className="flex-1 bg-[#e2f1f9] text-[#070d1c]">
-        {/* Header Strip */}
-        <section className="bg-[#070d1c] text-white pt-14 pb-16 border-b border-white/10 text-center">
-          <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
-            <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-sky-500/10 text-sky-300 border border-sky-500/20 text-xs font-bold uppercase tracking-wider mb-4">
-              <Shield className="w-3.5 h-3.5" />
-              Yasal Bilgilendirme
-            </span>
-            <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight mb-4">
-              Gizlilik Politikası
-            </h1>
-            <p className="text-sm sm:text-base text-slate-300 max-w-xl mx-auto">
-              Son Güncelleme: 02.09.2026 | Erpovy Bulut Kurumsal Yazılım Teknolojileri A.Ş.
-            </p>
-          </div>
-        </section>
-
-        {/* Content Box */}
-        <section className="py-16">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+export default function Page() {
+    return (<InnerPage label="Gizlilik politikası" title="Gizlilik politikası" accent="Bilginiz dahilinde." description="Gizliliğiniz, veri güvenliği ve hizmetlerimizin kullanımına ilişkin bilgiler." closing={false}><section className={s.content}><div className={s.container}><nav className={s.legalNav} aria-label="Yasal belgeler"><Link href="/gizlilik-politikasi/">Gizlilik politikası</Link><Link href="/kullanim-kosullari/">Kullanım koşulları</Link><Link href="/kvkk/">KVKK aydınlatma metni</Link></nav>
+          <div className={s.legalBody}>
             <div className="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200/90 shadow-md space-y-8 text-sm sm:text-base text-[#334155] leading-relaxed">
               <div>
                 <h2 className="text-xl font-bold text-[#070d1c] mb-3 flex items-center gap-2">
-                  <Lock className="w-5 h-5 text-[#1992d1]" />
+                  <Lock className="w-5 h-5 text-[#1992d1]"/>
                   1. Genel İlkeler ve Taahhüdümüz
                 </h2>
                 <p>
@@ -49,7 +26,7 @@ export default function GizlilikPolitikasiPage() {
 
               <div>
                 <h2 className="text-xl font-bold text-[#070d1c] mb-3 flex items-center gap-2">
-                  <FileText className="w-5 h-5 text-[#1992d1]" />
+                  <FileText className="w-5 h-5 text-[#1992d1]"/>
                   2. Toplanan Bilgiler ve Kapsam
                 </h2>
                 <ul className="list-disc pl-5 space-y-2">
@@ -99,9 +76,5 @@ export default function GizlilikPolitikasiPage() {
               </div>
             </div>
           </div>
-        </section>
-      </main>
-      <Footer />
-    </>
-  );
+        </div></section></InnerPage>);
 }
