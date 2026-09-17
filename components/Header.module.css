@@ -30,7 +30,7 @@
 .actions { display: flex; align-items: center; gap: 25px; }
 .login { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-size: 11px; font-weight: 550; white-space: nowrap; }
 .login:hover { color: #147ca8; }
-.demo { display: inline-flex; align-items: center; justify-content: space-between; gap: 24px; padding: 14px 19px; min-height: 47px; border-radius: 5px; background: #142f3d; color: #fff; font-size: 11px; font-weight: 550; white-space: nowrap; transition: background .2s; }
+.demo { display: inline-flex; align-items: center; justify-content: space-between; gap: 12px; padding: 13px 18px; min-height: 45px; border-radius: 6px; background: #142f3d; color: #fff; font-size: 11px; font-weight: 550; white-space: nowrap; transition: background .2s; }
 .demo:hover { background: #24546a; }
 .demo[aria-current="page"] { background: #147ca8; }
 .toggle { display: none; align-items: center; gap: 10px; padding: 10px 12px; border: 1px solid #d2ddd5; border-radius: 5px; background: transparent; color: #162c40; cursor: pointer; }

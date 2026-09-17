@@ -89,9 +89,9 @@ export function Header() {
           <a href={siteConfig.loginUrl} target="_blank" rel="noopener noreferrer" className={s.login}>
             Giriş yap <ArrowUpRight size={15} />
           </a>
-          <Link href="/demo/" className={s.demo} aria-current={isActive("/demo/") ? "page" : undefined}>
-            Demo talep et <ArrowRight size={17} />
-          </Link>
+          <a href="https://app.erpovy.com/register" target="_blank" rel="noopener noreferrer" className={s.demo}>
+            14 gün ücretsiz deneme <ArrowRight size={17} />
+          </a>
         </div>
         <button ref={toggle} type="button" className={s.toggle} aria-expanded={open} aria-controls="mobile-navigation" aria-label={open ? "Menüyü kapat" : "Menüyü aç"} onClick={() => setOpen(value => !value)}>
           <span>{open ? "Kapat" : "Menü"}</span>{open ? <X size={21} /> : <Menu size={21} />}
@@ -114,8 +114,12 @@ export function Header() {
             ))}
           </nav>
           <div className={s.mobileActions}>
-            <Link href="/demo/" className={s.demo} onClick={() => setOpen(false)}>Demo talep et <ArrowRight size={17} /></Link>
-            <a href={siteConfig.loginUrl} target="_blank" rel="noopener noreferrer" className={s.login} onClick={() => setOpen(false)}>Giriş yap <ArrowUpRight size={15} /></a>
+            <a href="https://app.erpovy.com/register" target="_blank" rel="noopener noreferrer" className={s.demo} onClick={() => setOpen(false)}>
+              14 gün ücretsiz deneme <ArrowRight size={17} />
+            </a>
+            <a href={siteConfig.loginUrl} target="_blank" rel="noopener noreferrer" className={s.login} onClick={() => setOpen(false)}>
+              Giriş yap <ArrowUpRight size={15} />
+            </a>
           </div>
           <nav aria-label="Yasal sayfalar" className={s.legalNav}>
             {legalLinks.map(link => <Link key={link.href} href={link.href} onClick={() => setOpen(false)}>{link.label}</Link>)}
