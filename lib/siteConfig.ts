@@ -10,6 +10,7 @@ export const siteConfig = {
   loginUrl: "https://app.erpovy.com/login",
   registerUrl: "https://app.erpovy.com/register",
   logo: "/brand/logo.png",
+  logoWhite: "/brand/logo-white.png",
   favicon: "/brand/favicon.png",
   socialOg: "/og/erpovy-og.png",
   navLinks: [

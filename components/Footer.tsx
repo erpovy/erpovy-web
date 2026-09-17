@@ -16,7 +16,7 @@ export function Footer() {
               className="inline-block relative w-32 h-8 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1992d1] rounded"
             >
               <Image
-                src={siteConfig.logo}
+                src={siteConfig.logoWhite}
                 alt="Erpovy"
                 fill
                 className="object-contain object-left"
