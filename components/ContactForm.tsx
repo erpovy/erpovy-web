@@ -24,10 +24,11 @@ export function ContactForm() {
     setIsSubmitting(true);
 
     try {
-      const res = await fetch("mail.php", {
+      const res = await fetch("/mail.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
+          mode: "contact",
           fullName,
           email,
           phone,
@@ -176,6 +177,7 @@ export function ContactForm() {
             disabled={isSubmitting}
             className="w-full px-3.5 py-2.5 rounded-lg bg-[#070d1c] border border-white/15 text-sm text-white focus:outline-none focus:border-[#1992d1]"
           >
+            <option value="Genel Bilgi">Genel Bilgi</option>
             <option value="Demo Talebi">Demo ve Ürün Tanıtımı</option>
             <option value="Fiyatlandırma">Fiyat ve Lisanslama Teklifi</option>
             <option value="Veri Taşıma">Eski Sistemden Veri Aktarımı</option>

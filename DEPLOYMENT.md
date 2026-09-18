@@ -1,110 +1,13 @@
-﻿# Erpovy Web — Sunucu Dağıtım ve Kurulum Kılavuzu
+# Erpovy Web — cPanel dağıtımı
 
-Bu proje bir Next.js 16 (App Router + Turbopack) uygulamasıdır. Sunucuya dosyaları yükledikten sonra aşağıdaki 3 yöntemden dilediğinizi seçerek tek tıkla veya tek komutla kurup çalıştırabilirsiniz.
+Bu proje `output: "export"` ile statik site üretir. Canlı ortam PHP destekli cPanel hosting kullanır.
 
----
+1. Bağımlılıkları `npm ci` ile yükleyin.
+2. `npm run build` çalıştırın.
+3. `out/` klasörünün içeriğini sitenin belge köküne (`public_html/`) yükleyin. Klasör yapısını koruyun; `mail.php` kökte kalmalıdır.
+4. PHP'yi etkinleştirin ve [iletişim formu kurulumunu](CONTACT-SETUP.md) tamamlayın.
+5. Ana sayfayı, `/iletisim/` ve `/demo/` sayfalarını kontrol edin. Bir test talebinin info@erpovy.com kutusuna ulaştığını doğrulayın.
 
-## 📁 1. Sunucuya Hangi Dosyaları Yükleyeceksiniz?
+`next start`, PM2 ve mevcut Node Docker betikleri bu statik cPanel dağıtımının parçası değildir. Yerel arayüz geliştirmesi için `npm run dev` kullanılabilir; bu sunucu PHP çalıştırmaz. Form dahil önizleme için `npm run build` sonrası `php -S 127.0.0.1:8080 -t out` kullanın.
 
-Sunucuya yüklerken .git, 
-ode_modules ve .next klasörlerini **atlamanız** (yüklememeniz) önerilir. Sadece kaynak kodları yükleyin:
-
-- pp/
-- components/
-- content/
-- lib/
-- public/
-- package.json ve package-lock.json
-- 	sconfig.json
-- 
-ext.config.ts
-- .env.example
-- setup.sh, setup.bat, ecosystem.config.json, Dockerfile, docker-compose.yml
-
----
-
-## 🚀 2. Yöntemler (Nasıl Çalıştırılır?)
-
-### Seçenek A: Linux Sunucu (Ubuntu / Debian / CentOS) — ÖNERİLEN (PM2 İle)
-
-1. Sunucunuzda projenin bulunduğu klasöre gidin.
-2. setup.sh dosyasına çalıştırma izni verin ve başlatın:
-   `ash
-   chmod +x setup.sh
-   ./setup.sh
-   `
-Bu script sırasıyla:
-- 
-pm install ile paketleri yükler.
-- .env.example dosyasından .env.local oluşturur.
-- 
-pm run build ile projeyi canlı modda derler.
-- pm2 ile arka planda kesintisiz (cluster modda) çalıştırır ve sunucu yeniden başlasa bile otomatik açılmasını sağlar (pm2 save).
-
----
-
-### Seçenek B: Docker & Docker Compose (İzole ve Taşınabilir)
-
-Sunucunuzda Docker ve Docker Compose kuruluysa hiçbir Node.js sürümüyle uğraşmadan:
-
-1. .env.example dosyasını .env.local olarak kopyalayın:
-   `ash
-   cp .env.example .env.local
-   `
-2. Konteyneri inşa edip başlatın:
-   `ash
-   docker compose up -d --build
-   `
-Uygulama http://sunucu-ip-adresi:3000 portundan canlıya alınacaktır.
-
----
-
-### Seçenek C: Windows Server
-
-1. Klasör içindeki setup.bat dosyasına çift tıklayın veya CMD üzerinden çalıştırın:
-   `cmd
-   setup.bat
-   `
-
----
-
-## 🔒 3. Nginx Ters Proxy (Domain ve SSL / HTTPS Bağlantısı)
-
-Uygulama sunucuda 3000 portunda çalışır. Domaininizi (www.erpovy.com) bağlamak için örnek Nginx bloğu:
-
-`
-ginx
-server {
-    server_name erpovy.com www.erpovy.com;
-
-    location / {
-        proxy_pass http://localhost:3000;
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade ;
-        proxy_set_header Connection 'upgrade';
-        proxy_set_header Host System.Management.Automation.Internal.Host.InternalHost;
-        proxy_cache_bypass ;
-        proxy_set_header X-Real-IP ;
-        proxy_set_header X-Forwarded-For ;
-        proxy_set_header X-Forwarded-Proto ;
-    }
-}
-`
-Ardından Certbot ile ücretsiz SSL sertifikanızı tek komutla aktif edebilirsiniz:
-`ash
-sudo certbot --nginx -d erpovy.com -d www.erpovy.com
-`
-
----
-
-## ✉️ 4. E-posta ve Demo Bildirim Ayarları
-
-Sunucuda .env.local dosyasını açıp kurumsal SMTP e-posta bilgilerinizi girdiğiniz anda demo talepleri e-postanıza düşmeye başlar:
-
-`env
-DEMO_NOTIFICATION_EMAIL=info@erpovy.com
-SMTP_HOST=smtp.yandex.com
-SMTP_PORT=465
-SMTP_USER=info@erpovy.com
-SMTP_PASS=uygulama_sifresi
-`
+E-posta parolalarını derlenen siteye veya depoya koymayın. SMTP gerekiyorsa özel yapılandırma dosyasını belge kökünün dışında tutun; ayrıntılar [CONTACT-SETUP.md](CONTACT-SETUP.md) içindedir.

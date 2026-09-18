@@ -42,9 +42,11 @@ Varsayılan olarak `http://localhost:3000` adresinde yerel önizleme açılır.
 npm run build
 ```
 
-4. Üretim sunucusunu çalıştırın:
+4. cPanel'e `out/` klasörünün içeriğini yükleyin. İletişim formu için PHP etkin olmalıdır. Ayrıntılar: [CONTACT-SETUP.md](CONTACT-SETUP.md).
+
+Yerel PHP önizlemesi:
 ```bash
-npm run start
+php -S 127.0.0.1:8080 -t out
 ```
 
 ---

@@ -26,13 +26,15 @@ export function InquiryForm({ mode }: {
             const response = await fetch("/mail.php", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ fullName: data.get("fullName"), email: data.get("email"), companyName: data.get("companyName"), phone: data.get("phone"), primaryNeed: data.get("primaryNeed"), note: [context && `Seçilen kapsam: ${context}`, data.get("note")].filter(Boolean).join("\n"), honeypot: data.get("contact_fax") }),
+                body: JSON.stringify({ mode, fullName: data.get("fullName"), email: data.get("email"), companyName: data.get("companyName"), phone: data.get("phone"), primaryNeed: data.get("primaryNeed"), note: data.get("note"), context, honeypot: data.get("contact_fax") }),
             });
             if (!response.headers.get("content-type")?.includes("application/json"))
                 throw new Error("unavailable");
             const result = await response.json();
-            if (!response.ok || !result.success)
-                throw new Error("failed");
+            if (!response.ok || !result.success) {
+                setStatus({ type: "error", message: result.error || "Talebiniz gönderilemedi. Lütfen tekrar deneyin." });
+                return;
+            }
             setStatus({ type: "success", message: "Talebiniz alındı. Paylaştığınız iletişim bilgileri üzerinden size ulaşacağız." });
             form.reset();
         }
@@ -49,7 +51,7 @@ export function InquiryForm({ mode }: {
     <form onSubmit={submit} aria-busy={pending}><fieldset disabled={pending} className={s.formFields}><div className={s.formGrid}>
       <label>Adınız soyadınız <span>*</span><input name="fullName" autoComplete="name" placeholder="Ad Soyad" required maxLength={120}/></label>
       <label>İş e-postanız <span>*</span><input name="email" type="email" autoComplete="email" placeholder="ad@sirketiniz.com" required maxLength={160}/></label>
-      <label>Şirket adı <span>*</span><input name="companyName" autoComplete="organization" placeholder="Şirketiniz" required maxLength={160}/></label>
+      <label>Şirket adı {mode === "demo" ? <span>*</span> : <small>İsteğe bağlı</small>}<input name="companyName" autoComplete="organization" placeholder="Şirketiniz" required={mode === "demo"} maxLength={160}/></label>
       <label>Telefon <small>İsteğe bağlı</small><input name="phone" type="tel" autoComplete="tel" placeholder="05XX XXX XX XX" maxLength={30}/></label>
     </div><label>{mode === "demo" ? "Öncelikli ihtiyacınız" : "Konu"}<select name="primaryNeed" defaultValue={mode === "demo" ? "Demo Talebi" : "Genel Bilgi"}>{["Demo Talebi", "Genel Bilgi", "Fiyatlandırma", "Finans", "Satış", "Stok ve Depo", "Üretim", "Veri Aktarımı", "Sektörel Çözüm", "Teknik Destek", "Diğer"].map(value => <option key={value}>{value}</option>)}</select></label>
     <label>{mode === "demo" ? "Görüşmede neye odaklanalım?" : "Mesajınız"} {mode === "contact" && <span>*</span>}<textarea name="note" rows={4} placeholder="İşletmenizi ve öncelikli ihtiyacınızı kısaca anlatın…" required={mode === "contact"} maxLength={4000}/></label>

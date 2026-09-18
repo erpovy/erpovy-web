@@ -63,7 +63,7 @@ export function ClosingDemoSection() {
     setIsSubmitting(true);
 
     try {
-      const res = await fetch("mail.php", {
+      const res = await fetch("/mail.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

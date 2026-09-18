@@ -1,149 +1,142 @@
 <?php
+// PHP 7.4+ / cPanel. Keep credentials outside public_html (see CONTACT-SETUP.md).
 header('Content-Type: application/json; charset=utf-8');
+header('Cache-Control: no-store');
 
-// ====================================================================
-// 1. E-POSTA VE SMTP AYARLARINIZ
-// ====================================================================
-
-// Demo taleplerinin düşeceği e-posta adresi:
-$to = 'info@erpovy.com';
-
-// SMTP kullanmak istiyorsanız true yapın (Yandex, Google, Hosting SMTP vb.):
-$useSmtp = false; // true yaparsanız aşağıdaki SMTP ayarlarıyla gönderir
-
-$smtpHost = 'smtp.yandex.com';        // Örn: smtp.yandex.com veya mail.erpovy.com
-$smtpPort = 465;                      // SSL için 465, TLS için 587
-$smtpSecure = 'ssl';                  // 'ssl' veya 'tls'
-$smtpUser = 'info@erpovy.com';        // SMTP kullanıcı adı (genelde e-posta adresiniz)
-$smtpPass = 'mail_sifreniz';          // E-posta veya uygulama şifreniz
-
-// ====================================================================
-// 2. İŞLEM KODLARI (BURADAN SONRASINA DOKUNMANIZA GEREK YOKTUR)
-// ====================================================================
-
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    echo json_encode(['error' => 'Geçersiz istek türü']);
+function respond($status, $payload) {
+    http_response_code($status);
+    echo json_encode($payload, JSON_UNESCAPED_UNICODE);
     exit;
 }
 
-$input = file_get_contents('php://input');
+if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
+    header('Allow: POST');
+    respond(405, ['error' => 'Yalnızca POST istekleri kabul edilir.']);
+}
+if ((int) ($_SERVER['CONTENT_LENGTH'] ?? 0) > 32768) {
+    respond(413, ['error' => 'Gönderilen veri çok büyük.']);
+}
+$input = file_get_contents('php://input', false, null, 0, 32769);
+if (strlen($input) > 32768) respond(413, ['error' => 'Gönderilen veri çok büyük.']);
 $data = json_decode($input, true);
-
-if (!$data) {
-    echo json_encode(['error' => 'Geçersiz veri gönderildi']);
-    exit;
+if (!is_array($data) || substr(ltrim($input), 0, 1) !== '{') {
+    respond(400, ['error' => 'Geçersiz form verisi.']);
 }
-
-$fn = htmlspecialchars($data['fullName'] ?? '');
-$em = htmlspecialchars($data['email'] ?? '');
-$co = htmlspecialchars($data['companyName'] ?? '');
-$ne = htmlspecialchars($data['primaryNeed'] ?? 'Finans');
-$ph = htmlspecialchars($data['phone'] ?? 'Belirtilmedi');
-$no = htmlspecialchars($data['note'] ?? 'Yok');
-$honeypot = htmlspecialchars($data['honeypot'] ?? '');
-
-// Spam bot kontrolü
-if (!empty($honeypot)) {
-    echo json_encode(['success' => true, 'message' => 'Talebiniz alındı.']);
-    exit;
-}
-
-// Zorunlu alan kontrolü
-if (empty($fn) || empty($em) || empty($co)) {
-    echo json_encode(['error' => 'Lütfen ad soyad, iş e-postası ve firma adı alanlarını doldurun.']);
-    exit;
-}
-
-$subject = "=?UTF-8?B?" . base64_encode("[Demo Talebi] $co - $fn") . "?=";
-$timestamp = date('d.m.Y H:i:s');
-
-$message = "Yeni Demo Talebi — Erpovy\n";
-$message .= "========================================\n";
-$message .= "Ad Soyad       : $fn\n";
-$message .= "İş E-postası   : $em\n";
-$message .= "Firma Adı      : $co\n";
-$message .= "Öncelikli Odak : $ne\n";
-$message .= "Telefon        : $ph\n";
-$message .= "Kullanıcı Notu : $no\n";
-$message .= "Tarih          : $timestamp\n";
-
-if ($useSmtp) {
-    $sent = sendSmtpMail($smtpHost, $smtpPort, $smtpSecure, $smtpUser, $smtpPass, $to, $subject, $message, $em);
-} else {
-    $headers = "From: Erpovy Web <no-reply@" . ($_SERVER['HTTP_HOST'] ?? 'erpovy.com') . ">\r\n";
-    $headers .= "Reply-To: $em\r\n";
-    $headers .= "Content-Type: text/plain; charset=utf-8\r\n";
-    $sent = @mail($to, $subject, $message, $headers);
-}
-
-if ($sent) {
-    echo json_encode([
-        'success' => true,
-        'message' => 'Demo talebiniz başarıyla alındı. Uzman ekibimiz en kısa sürede sizinle iletişime geçecektir.'
-    ]);
-} else {
-    echo json_encode([
-        'error' => 'E-posta iletimi sırasında bir sorun oluştu. Lütfen doğrudan ' . $to . ' adresinden iletişime geçin.'
-    ]);
-}
-
-// Saf PHP yerel Socket SMTP İstemcisi (Kütüphane gerektirmez)
-function sendSmtpMail($host, $port, $secure, $user, $pass, $to, $subject, $body, $replyTo) {
-    $timeout = 10;
-    $prefix = ($secure === 'ssl') ? 'ssl://' : '';
-    $socket = @fsockopen($prefix . $host, $port, $errno, $errstr, $timeout);
-    
-    if (!$socket) return false;
-
-    $response = fgets($socket, 515);
-    if (empty($response)) return false;
-
-    fputs($socket, "EHLO " . ($_SERVER['HTTP_HOST'] ?? 'localhost') . "\r\n");
-    while ($line = fgets($socket, 515)) {
-        if (substr($line, 3, 1) == " ") break;
+$limits = ['mode' => 10, 'fullName' => 120, 'email' => 160, 'companyName' => 160,
+    'phone' => 30, 'primaryNeed' => 160, 'note' => 4000, 'context' => 500, 'honeypot' => 200];
+$fields = [];
+foreach ($limits as $key => $limit) {
+    $value = $data[$key] ?? '';
+    if (!is_string($value)) respond(422, ['error' => 'Form alanları metin olmalıdır.']);
+    $value = trim($value);
+    // Count Unicode characters without requiring the mbstring extension.
+    if (preg_match_all('/./us', $value, $unused) > $limit || strpos($value, "\0") !== false) {
+        respond(422, ['error' => 'Bir form alanı izin verilen uzunluğu aşıyor veya geçersiz karakter içeriyor.']);
     }
+    $fields[$key] = $value;
+}
+if ($fields['honeypot'] !== '') respond(200, ['success' => true]);
+$mode = $fields['mode'] ?: 'demo'; // Older demo forms omit mode.
+if (!in_array($mode, ['contact', 'demo'], true)) respond(422, ['error' => 'Geçersiz form türü.']);
+if ($fields['fullName'] === '' || $fields['email'] === '' ||
+    ($mode === 'demo' && $fields['companyName'] === '') ||
+    ($mode === 'contact' && $fields['note'] === '')) {
+    respond(422, ['error' => 'Lütfen zorunlu alanları doldurun.']);
+}
+if (!filter_var($fields['email'], FILTER_VALIDATE_EMAIL) || preg_match('/[\r\n]/', $fields['email'])) {
+    respond(422, ['error' => 'Lütfen geçerli bir e-posta adresi girin.']);
+}
+foreach (['fullName', 'companyName', 'phone', 'primaryNeed'] as $key) {
+    if (preg_match('/[\r\n]/', $fields[$key])) respond(422, ['error' => 'Tek satırlık alanlarda satır sonu kullanılamaz.']);
+}
 
-    if ($secure === 'tls') {
-        fputs($socket, "STARTTLS\r\n");
-        fgets($socket, 515);
-        stream_socket_enable_crypto($socket, true, STREAM_CRYPTO_METHOD_TLS_CLIENT);
-        fputs($socket, "EHLO " . ($_SERVER['HTTP_HOST'] ?? 'localhost') . "\r\n");
-        while ($line = fgets($socket, 515)) {
-            if (substr($line, 3, 1) == " ") break;
+try {
+    $configFile = getenv('ERPOVY_MAIL_CONFIG') ?: dirname(__DIR__) . '/erpovy-mail-config.php';
+    $config = is_file($configFile) ? require $configFile : [];
+    if (!is_array($config)) throw new RuntimeException('Invalid mail config');
+    $to = $config['to'] ?? 'info@erpovy.com';
+    $from = $config['from'] ?? 'info@erpovy.com';
+    foreach ([$to, $from] as $address) {
+        if (!filter_var($address, FILTER_VALIDATE_EMAIL) || preg_match('/[\r\n]/', $address)) {
+            throw new RuntimeException('Invalid configured mail address');
         }
     }
-
-    fputs($socket, "AUTH LOGIN\r\n");
-    fgets($socket, 515);
-    fputs($socket, base64_encode($user) . "\r\n");
-    fgets($socket, 515);
-    fputs($socket, base64_encode($pass) . "\r\n");
-    $authRes = fgets($socket, 515);
-    if (substr($authRes, 0, 3) != '235') {
-        fclose($socket);
-        return false;
+    $title = $mode === 'contact' ? 'İletişim Mesajı' : 'Demo Talebi';
+    $subject = '=?UTF-8?B?' . base64_encode('[Erpovy ' . $title . '] ' . ($fields['primaryNeed'] ?: 'Genel Bilgi')) . '?=';
+    $body = "$title — Erpovy\n========================================\n";
+    foreach (['fullName' => 'Ad Soyad', 'email' => 'E-posta', 'companyName' => 'Firma',
+        'phone' => 'Telefon', 'primaryNeed' => 'Konu', 'context' => 'Seçilen kapsam', 'note' => 'Mesaj'] as $key => $label) {
+        $body .= $label . ': ' . ($fields[$key] ?: 'Belirtilmedi') . "\n";
     }
-
-    fputs($socket, "MAIL FROM: <$user>\r\n");
-    fgets($socket, 515);
-    fputs($socket, "RCPT TO: <$to>\r\n");
-    fgets($socket, 515);
-    fputs($socket, "DATA\r\n");
-    fgets($socket, 515);
-
-    $headers = "From: Erpovy Web <$user>\r\n";
-    $headers .= "Reply-To: $replyTo\r\n";
-    $headers .= "To: <$to>\r\n";
-    $headers .= "Subject: $subject\r\n";
-    $headers .= "MIME-Version: 1.0\r\n";
-    $headers .= "Content-Type: text/plain; charset=utf-8\r\n";
-
-    fputs($socket, "$headers\r\n$body\r\n.\r\n");
-    $sendRes = fgets($socket, 515);
-
-    fputs($socket, "QUIT\r\n");
-    fclose($socket);
-
-    return (substr($sendRes, 0, 3) == '250');
+    $body .= 'Tarih: ' . gmdate('Y-m-d H:i:s') . " UTC\n";
+    $headers = "From: Erpovy Web <$from>\r\nReply-To: {$fields['email']}\r\n" .
+        "MIME-Version: 1.0\r\nContent-Type: text/plain; charset=utf-8\r\nContent-Transfer-Encoding: base64\r\n";
+    $encodedBody = chunk_split(base64_encode($body));
+    if (($config['transport'] ?? 'mail') === 'smtp') {
+        sendSmtpMail($config, $from, $to, $subject, $headers, $encodedBody);
+    } elseif (($config['transport'] ?? 'mail') === 'mail') {
+        if (!@mail($to, $subject, $encodedBody, $headers)) throw new RuntimeException('PHP mail rejected message');
+    } else {
+        throw new RuntimeException('Unknown mail transport');
+    }
+    respond(200, ['success' => true, 'message' => 'Mesajınız gönderildi. En kısa sürede sizinle iletişime geçeceğiz.']);
+} catch (Throwable $error) {
+    // Do not log credentials, SMTP replies or personal form contents.
+    error_log('Erpovy: mail delivery failed. Check mail configuration and server logs.');
+    respond(503, ['error' => 'Mesajınız şu anda gönderilemedi. Lütfen tekrar deneyin veya info@erpovy.com adresine yazın.']);
 }
 
+function smtpExpect($socket, $expected) {
+    do {
+        $line = fgets($socket, 4096);
+        if ($line === false || !preg_match('/^\d{3}[ -]/', $line)) throw new RuntimeException('SMTP connection failed');
+        $code = (int) substr($line, 0, 3);
+    } while ($line[3] === '-');
+    if (!in_array($code, $expected, true)) throw new RuntimeException('SMTP command rejected');
+}
+function smtpWrite($socket, $data) {
+    while ($data !== '') {
+        $written = fwrite($socket, $data);
+        if (!$written) throw new RuntimeException('SMTP write failed');
+        $data = substr($data, $written);
+    }
+}
+function smtpCommand($socket, $command, $expected) {
+    smtpWrite($socket, $command . "\r\n");
+    smtpExpect($socket, $expected);
+}
+function sendSmtpMail($config, $from, $to, $subject, $headers, $body) {
+    $host = $config['host'] ?? '';
+    $secure = $config['secure'] ?? 'ssl';
+    $port = (int) ($config['port'] ?? ($secure === 'ssl' ? 465 : 587));
+    $user = $config['user'] ?? '';
+    $pass = $config['pass'] ?? '';
+    if (!preg_match('/^[a-zA-Z0-9.-]+$/', $host) || !in_array($secure, ['ssl', 'tls'], true) ||
+        $port < 1 || $port > 65535 || $user === '' || $pass === '') throw new RuntimeException('Missing SMTP configuration');
+    $context = stream_context_create(['ssl' => ['verify_peer' => true, 'verify_peer_name' => true, 'peer_name' => $host]]);
+    $socket = @stream_socket_client(($secure === 'ssl' ? 'ssl://' : 'tcp://') . $host . ':' . $port,
+        $errno, $errstr, 10, STREAM_CLIENT_CONNECT, $context);
+    if (!$socket) throw new RuntimeException('SMTP unavailable');
+    stream_set_timeout($socket, 10);
+    try {
+        smtpExpect($socket, [220]);
+        smtpCommand($socket, 'EHLO erpovy.com', [250]);
+        if ($secure === 'tls') {
+            smtpCommand($socket, 'STARTTLS', [220]);
+            if (!stream_socket_enable_crypto($socket, true, STREAM_CRYPTO_METHOD_TLS_CLIENT)) throw new RuntimeException('TLS failed');
+            smtpCommand($socket, 'EHLO erpovy.com', [250]);
+        }
+        smtpCommand($socket, 'AUTH LOGIN', [334]);
+        smtpCommand($socket, base64_encode($user), [334]);
+        smtpCommand($socket, base64_encode($pass), [235]);
+        smtpCommand($socket, "MAIL FROM: <$from>", [250]);
+        smtpCommand($socket, "RCPT TO: <$to>", [250, 251]);
+        smtpCommand($socket, 'DATA', [354]);
+        smtpWrite($socket, "To: <$to>\r\nSubject: $subject\r\n" . $headers . "\r\n" . $body . ".\r\n");
+        smtpExpect($socket, [250]);
+        // Acceptance is final; a disconnect during QUIT must not invite duplicate submissions.
+        @fwrite($socket, "QUIT\r\n");
+    } finally {
+        fclose($socket);
+    }
+}
